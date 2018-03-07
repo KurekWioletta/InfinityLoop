@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- Gradients -->
+    <color name="gradientMenuEnd">#43c6ac</color>
+    <color name="gradientMenuStart">#191654</color>
 </resources>
