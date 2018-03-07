@@ -5,6 +5,14 @@
     <color name="colorAccent">#FF4081</color>
 
 
+    <!-- Grayscale -->
+    <color name="white">#ffffff</color>
+
+
+    <!-- Transparent -->
+    <color name="transparentWhite">#b8ffffff</color>
+
+
     <!-- Gradients -->
     <color name="gradientMenuEnd">#43c6ac</color>
     <color name="gradientMenuStart">#191654</color>
