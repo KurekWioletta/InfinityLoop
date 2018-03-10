@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Infinity Loop</string>
+
+
+    <string name="menu_option1">play</string>
+    <string name="menu_option2">select level</string>
+    <string name="menu_option3">share</string>
 </resources>
