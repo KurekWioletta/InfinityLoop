@@ -24,7 +24,7 @@
         <item name="android:paddingBottom">@dimen/selectOptionP</item>
         <item name="android:paddingTop">@dimen/selectOptionP</item>
         <item name="android:textSize">@dimen/textNormal</item>
-
+        <item name="fontPath">fonts/kirvy_regular.otf</item>
         <item name="android:shadowColor">@color/transparentWhite</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:shadowDx">0</item>

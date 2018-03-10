@@ -1,6 +1,5 @@
 package com.hecate.infinityloop.di;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.hecate.infinityloop.App;
@@ -27,7 +26,7 @@ public class AppModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
+                .setDefaultFontPath("fonts/kirvy_regular.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build();
     }
