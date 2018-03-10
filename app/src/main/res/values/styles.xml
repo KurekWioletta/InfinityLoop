@@ -2,14 +2,12 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
 
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
@@ -18,17 +16,23 @@
 
 
 
-    <style name="MenuOptions">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:layout_marginBottom">@dimen/selectOptionM</item>
-        <item name="android:paddingBottom">@dimen/selectOptionP</item>
-        <item name="android:paddingTop">@dimen/selectOptionP</item>
-        <item name="android:textSize">@dimen/textNormal</item>
-        <item name="fontPath">fonts/kirvy_regular.otf</item>
+    <!-- custom themes -->
+    <style name="OuterGlow" >
         <item name="android:shadowColor">@color/transparentWhite</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">0</item>
     </style>
+
+    <style name="MenuText" parent="OuterGlow">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginBottom">@dimen/selectOptionM</item>
+        <item name="android:layout_marginTop">@dimen/selectOptionM</item>
+        <item name="android:paddingBottom">@dimen/selectOptionP</item>
+        <item name="android:paddingTop">@dimen/selectOptionP</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+        <item name="fontPath">fonts/kirvy_regular.otf</item>
+    </style>
+
 
 </resources>
