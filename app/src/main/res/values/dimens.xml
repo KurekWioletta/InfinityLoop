@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!---======= Texts ========-->
+    <dimen name="textNormal">24sp</dimen>
+
+
+    <!---======= Paddings ========-->
+    <dimen name="selectOptionP">4dp</dimen>
+
+
+    <!---======= Margins ========-->
+    <dimen name="selectOptionM">4dp</dimen>
+
+
+    <!---======= Views ========-->
+    <dimen name="viewMenuLogoWidth">140dp</dimen>
+    <dimen name="viewMenuLogoHeight">80dp</dimen>
+
+</resources>
