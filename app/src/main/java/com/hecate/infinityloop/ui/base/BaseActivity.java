@@ -1,19 +1,20 @@
-package com.hecate.infinityloop.view;
+package com.hecate.infinityloop.ui.base;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.hecate.infinityloop.R;
+import android.support.v7.app.AppCompatActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MenuActivity extends AppCompatActivity {
+/**
+ * Created by Wiola on 12.03.2018.
+ */
+
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
     }
 
     @Override

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MenuContainer"
     android:fitsSystemWindows="true"
-    tools:context="com.hecate.infinityloop.view.MenuActivity">
+    tools:context="com.hecate.infinityloop.ui.menu.MenuActivity">
 
     <ImageView
         android:layout_width="match_parent"
