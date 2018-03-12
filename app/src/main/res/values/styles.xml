@@ -17,6 +17,8 @@
 
 
     <!-- custom themes -->
+
+    <!-- general -->
     <style name="OuterGlow" >
         <item name="android:shadowColor">@color/transparentWhite</item>
         <item name="android:shadowRadius">10</item>
@@ -24,14 +26,31 @@
         <item name="android:shadowDy">0</item>
     </style>
 
-    <style name="MenuText" parent="OuterGlow">
+    <style name="Text.Normal" parent="OuterGlow">
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+        <item name="fontPath">fonts/kirvy_regular.otf</item>
+    </style>
+
+    <style name="Text.Title" parent="OuterGlow">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textNormal</item>
+        <item name="fontPath">fonts/kirvy_regular.otf</item>
+    </style>
+
+
+    <!-- menu_activity -->
+    <style name="MenuContainer" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/background_menu_gradient</item>
+    </style>
+
+    <style name="MenuText" parent="Text.Normal">
         <item name="android:layout_marginBottom">@dimen/selectOptionM</item>
         <item name="android:layout_marginTop">@dimen/selectOptionM</item>
         <item name="android:paddingBottom">@dimen/selectOptionP</item>
         <item name="android:paddingTop">@dimen/selectOptionP</item>
-        <item name="android:textSize">@dimen/textNormal</item>
-        <item name="fontPath">fonts/kirvy_regular.otf</item>
     </style>
 
 
