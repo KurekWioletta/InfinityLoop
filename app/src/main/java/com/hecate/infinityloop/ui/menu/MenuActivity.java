@@ -10,7 +10,7 @@ import com.hecate.infinityloop.ui.maps.MapsActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MenuActivity extends BaseActivity implements MenuContract {
+public class MenuActivity extends BaseActivity implements MenuContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class MenuActivity extends BaseActivity implements MenuContract {
         finish();
     }
 
-    @OnClick(R.id.text_menu_select)
-    void onGoogleLoginClick(View v) {
+    @OnClick(R.id.text_menu_choose_map)
+    void onChooseMapClick(View v) {
         //mPresenter.onSelectLevelClick();
     }
 }

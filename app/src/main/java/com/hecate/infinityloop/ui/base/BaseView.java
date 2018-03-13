@@ -4,7 +4,7 @@ package com.hecate.infinityloop.ui.base;
  * Created by Wiola on 12.03.2018.
  */
 
-public interface View {
+public interface BaseView<T> {
 
     /*void showLoading();
 
