@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.ui.map;
+package com.hecate.infinityloop.ui.maps;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,16 +7,16 @@ import android.os.Bundle;
 
 import com.hecate.infinityloop.R;
 
-public class MapActivity extends AppCompatActivity {
+public class MapsActivity extends AppCompatActivity {
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, MapActivity.class);
+        Intent intent = new Intent(context, MapsActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_maps);
     }
 }

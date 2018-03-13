@@ -35,19 +35,22 @@
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option1" />
+            android:text="@string/menu_option1"
+            android:id="@+id/text_menu_play"/>
 
         <TextView
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option2" />
+            android:text="@string/menu_option2"
+            android:id="@+id/text_menu_select"/>
 
         <TextView
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option3" />
+            android:text="@string/menu_option3"
+            android:id="@+id/text_menu_share"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
