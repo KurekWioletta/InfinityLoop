@@ -5,5 +5,4 @@ package com.hecate.infinityloop.ui.base;
  */
 
 public interface BasePresenter<T> {
-
 }

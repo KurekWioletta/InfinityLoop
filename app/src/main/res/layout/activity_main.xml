@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MenuContainer"
     android:fitsSystemWindows="true"
-    tools:context="com.hecate.infinityloop.ui.menu.MenuActivity">
+    tools:context="com.hecate.infinityloop.ui.main\.MenuActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitEnd"
-        android:src="@drawable/background_menu_image"/>
+        android:src="@drawable/main_background_image"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
-        android:src="@drawable/logo"
+        android:src="@drawable/main_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.215" />

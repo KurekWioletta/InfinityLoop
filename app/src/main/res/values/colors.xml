@@ -10,10 +10,10 @@
 
 
     <!-- Transparent -->
-    <color name="transparentWhite">#b8ffffff</color>
+    <color name="transparent_white">#b8ffffff</color>
 
 
     <!-- Gradients -->
-    <color name="gradientMenuEnd">#43c6ac</color>
-    <color name="gradientMenuStart">#191654</color>
+    <color name="gradient_menu_end">#43c6ac</color>
+    <color name="gradient_menu_start">#191654</color>
 </resources>
