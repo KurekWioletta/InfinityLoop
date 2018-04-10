@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.di;
+package com.hecate.infinityloop.di.modules;
 
 import android.content.Context;
 

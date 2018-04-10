@@ -3,8 +3,7 @@ package com.hecate.infinityloop;
 import android.app.Application;
 
 
-import com.hecate.infinityloop.di.AppComponent;
-import com.hecate.infinityloop.di.AppModule;
+import com.hecate.infinityloop.di.components.AppComponent;
 import com.hecate.infinityloop.di.DaggerAppComponent;
 
 import javax.inject.Inject;

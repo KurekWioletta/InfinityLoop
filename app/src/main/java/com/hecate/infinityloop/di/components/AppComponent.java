@@ -1,8 +1,9 @@
-package com.hecate.infinityloop.di;
+package com.hecate.infinityloop.di.components;
 
 import android.app.Application;
 
 import com.hecate.infinityloop.App;
+import com.hecate.infinityloop.di.modules.AppModule;
 
 import javax.inject.Singleton;
 

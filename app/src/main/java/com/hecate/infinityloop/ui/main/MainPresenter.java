@@ -9,7 +9,7 @@ import com.hecate.infinityloop.ui.base.BasePresenter;
  * Created by Wiola on 08.04.2018.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class MainPresenter extends BasePresenter implements MainContract.Presenter {
 
     @Nullable
     private MainContract.View mView;
