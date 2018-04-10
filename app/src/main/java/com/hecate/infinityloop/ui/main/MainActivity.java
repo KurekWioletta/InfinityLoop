@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
-import com.hecate.infinityloop.ui.maps.MapsActivity;
+import com.hecate.infinityloop.ui.levels.SelectLevelActivity;
 
 import javax.inject.Inject;
 
@@ -25,14 +25,15 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         setUnBinder(ButterKnife.bind(this));
     }
 
-    @Override
-    public void openMapActivity() {
-        startActivity(MapsActivity.getStartIntent(this));
-        finish();
-    }
-
-    @OnClick(R.id.text_menu_choose_map)
+    @OnClick(R.id.text_menu_select_level)
     void onSelectLevelClick(View v) {
         mPresenter.onSelectLevelClick();
     }
+
+    @Override
+    public void openSelectLevelActivity() {
+        startActivity(SelectLevelActivity.getStartIntent(this));
+        finish();
+    }
+
 }

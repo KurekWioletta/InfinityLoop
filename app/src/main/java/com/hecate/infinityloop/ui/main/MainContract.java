@@ -10,7 +10,7 @@ import com.hecate.infinityloop.ui.base.BaseView;
 public interface MainContract extends BaseView {
 
     interface View extends BaseView<Presenter> {
-        void openMapActivity();
+        void openSelectLevelActivity();
     }
 
     interface Presenter extends BasePresenter<View> {

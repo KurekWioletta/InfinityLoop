@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/MenuContainer"
     android:fitsSystemWindows="true"
-    tools:context="com.hecate.infinityloop.ui.main\.MenuActivity">
+    tools:context="com.hecate.infinityloop.ui.main.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_option2"
-            android:id="@+id/text_menu_choose_map"/>
+            android:id="@+id/text_menu_select_level"/>
 
         <TextView
             style="@style/MenuText"

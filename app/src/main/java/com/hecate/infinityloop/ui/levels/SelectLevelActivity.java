@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.ui.maps;
+package com.hecate.infinityloop.ui.levels;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,16 +7,16 @@ import android.os.Bundle;
 
 import com.hecate.infinityloop.R;
 
-public class MapsActivity extends AppCompatActivity {
+public class SelectLevelActivity extends AppCompatActivity {
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, MapsActivity.class);
+        Intent intent = new Intent(context, SelectLevelActivity.class);
         return intent;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_select_level);
     }
 }
