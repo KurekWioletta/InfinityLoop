@@ -1,9 +1,11 @@
 package com.hecate.infinityloop.di.modules;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.hecate.infinityloop.App;
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.di.ApplicationContext;
 
 import javax.inject.Singleton;
 
@@ -11,15 +13,24 @@ import dagger.Module;
 import dagger.Provides;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-/**
- * Created by Wiola on 10.03.2018.
- */
 @Module
 public class AppModule {
 
+    private final Application mApplication;
+
+    public AppModule(Application application) {
+        mApplication = application;
+    }
+
     @Provides
-    Context provideContext(App application) {
-        return application.getApplicationContext();
+    @ApplicationContext
+    Context provideContext() {
+        return mApplication;
+    }
+
+    @Provides
+    Application provideApplication() {
+        return mApplication;
     }
 
     @Provides

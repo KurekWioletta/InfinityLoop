@@ -1,22 +1,20 @@
 package com.hecate.infinityloop.ui.main;
 
-
-import android.support.annotation.Nullable;
-
 import com.hecate.infinityloop.ui.base.BasePresenter;
 
-/**
- * Created by Wiola on 08.04.2018.
- */
+import javax.inject.Inject;
 
-public class MainPresenter extends BasePresenter implements MainContract.Presenter {
 
-    @Nullable
-    private MainContract.View mView;
+public class MainPresenter<V extends MainContract.View> extends BasePresenter<V> implements MainContract.Presenter<V> {
+
+    @Inject
+    public MainPresenter() {
+        //super(dataManager, schedulerProvider, compositeDisposable);
+    }
 
     @Override
     public void onSelectLevelClick() {
-        mView.openSelectLevelActivity();
+        getMvpView().openSelectLevelActivity();
     }
 
 }

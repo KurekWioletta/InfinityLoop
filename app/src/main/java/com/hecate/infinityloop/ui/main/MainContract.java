@@ -1,19 +1,19 @@
 package com.hecate.infinityloop.ui.main;
 
-import com.hecate.infinityloop.ui.base.BasePresenter;
-import com.hecate.infinityloop.ui.base.BaseView;
+import com.hecate.infinityloop.di.PerActivity;
+import com.hecate.infinityloop.ui.base.MvpPresenter;
+import com.hecate.infinityloop.ui.base.MvpView;
 
-/**
- * Created by Wiola on 12.03.2018.
- */
 
-public interface MainContract extends BaseView {
 
-    interface View extends BaseView<Presenter> {
+public interface MainContract extends MvpView {
+
+    interface View extends MvpView<Presenter> {
         void openSelectLevelActivity();
     }
 
-    interface Presenter extends BasePresenter<View> {
+    @PerActivity
+    interface Presenter<V extends View> extends MvpPresenter<V> {
         void onSelectLevelClick();
     }
 

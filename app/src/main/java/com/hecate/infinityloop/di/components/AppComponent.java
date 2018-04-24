@@ -1,32 +1,36 @@
 package com.hecate.infinityloop.di.components;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.hecate.infinityloop.App;
+import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.modules.AppModule;
 
 import javax.inject.Singleton;
-
-import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjector;
 
-/**
- * Created by Wiola on 10.03.2018.
- */
 
 @Singleton
-@Component(modules = {
-        AppModule.class})
+@Component(modules = {AppModule.class})
+public interface AppComponent extends AndroidInjector<App> {
 
-public interface AppComponent {
     void inject(App app);
 
+    @ApplicationContext
+    Context context();
+
+    Application application();
+
+    //void inject(App app);
+/*
     @Component.Builder
     interface Builder {
-        AppComponent build();
-
         @BindsInstance
-        Builder application(Application application);
+        AppComponent.Builder application(Application application);
 
+        AppComponent build();
     }
+*/
 }

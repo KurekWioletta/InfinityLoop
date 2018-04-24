@@ -6,9 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by Wiola on 10.04.2018.
- */
 
 @Module
 public class ActivityModule {

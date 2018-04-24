@@ -1,9 +1,27 @@
 package com.hecate.infinityloop.ui.base;
 
-/**
- * Created by Wiola on 13.03.2018.
- */
 
-public interface BasePresenter<T> {
+import javax.inject.Inject;
+
+public class BasePresenter<V extends MvpView> implements MvpPresenter<V>  {
+
+    private V mMvpView;
+
+    @Inject
+    public BasePresenter() {}
+
+    @Override
+    public void onAttach(V mvpView) {
+        mMvpView = mvpView;
+    }
+
+    @Override
+    public void onDetach() {
+        mMvpView = null;
+    }
+
+    public V getMvpView() {
+        return mMvpView;
+    }
 
 }
