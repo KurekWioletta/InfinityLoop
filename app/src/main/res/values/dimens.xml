@@ -3,7 +3,9 @@
 
 
     <!-- font sizes -->
+    <dimen name="text_small">18sp</dimen>
     <dimen name="text_normal">24sp</dimen>
+    <dimen name="text_large">30sp</dimen>
 
 
     <!-- typical spacing between two views -->
