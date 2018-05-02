@@ -2,15 +2,13 @@ package com.hecate.infinityloop.ui.main;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
-import com.hecate.infinityloop.ui.levels.SelectLevelActivity;
+import com.hecate.infinityloop.ui.levels.SelectLvlActivity;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -46,7 +44,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void openSelectLevelActivity() {
-        startActivity(SelectLevelActivity.getStartIntent(this));
+        startActivity(SelectLvlActivity.getStartIntent(this));
     }
 
 }

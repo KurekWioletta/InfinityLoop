@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background_gradient"
-    android:fitsSystemWindows="true"
+    android:background="@drawable/gradient_blue_lagoon"
     tools:context="com.hecate.infinityloop.ui.main.MainActivity">
+
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitEnd"
-        android:src="@drawable/main_background_image"/>
+        android:src="@drawable/main_bg_image"/>
 
     <ImageView
         android:layout_width="match_parent"

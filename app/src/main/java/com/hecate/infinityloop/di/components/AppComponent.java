@@ -23,14 +23,4 @@ public interface AppComponent extends AndroidInjector<App> {
 
     Application application();
 
-    //void inject(App app);
-/*
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        AppComponent.Builder application(Application application);
-
-        AppComponent build();
-    }
-*/
 }
