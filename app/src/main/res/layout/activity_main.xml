@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_blue_lagoon"
+    android:background="@drawable/gd_blue_lagoon"
     tools:context="com.hecate.infinityloop.ui.main.MainActivity">
 
 
@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitEnd"
-        android:src="@drawable/main_bg_image"/>
+        android:src="@drawable/bg_activity_main" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
-        android:src="@drawable/main_logo"
+        android:src="@drawable/ic_menu_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.215" />
@@ -33,25 +33,25 @@
         app:layout_constraintVertical_bias="0.58">
 
         <TextView
+            android:id="@+id/text_menu_play"
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option1"
-            android:id="@+id/text_menu_play"/>
+            android:text="@string/menu_option1" />
 
         <TextView
+            android:id="@+id/text_menu_select_level"
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option2"
-            android:id="@+id/text_menu_select_level"/>
+            android:text="@string/menu_option2" />
 
         <TextView
+            android:id="@+id/text_menu_share"
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_option3"
-            android:id="@+id/text_menu_share"/>
+            android:text="@string/menu_option3" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

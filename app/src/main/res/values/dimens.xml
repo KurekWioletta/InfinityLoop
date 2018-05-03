@@ -8,12 +8,15 @@
     <dimen name="text_large">30sp</dimen>
 
 
-    <!-- typical spacing between two views -->
-    <dimen name="spacing_normal">4dp</dimen>
+    <!-- spacing between two views -->
+    <dimen name="spacing_extra_small">4dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+
+    <!-- shape widths -->
+    <dimen name="width_small">2dp</dimen>
 
 
-    <!-- typical sizes of views -->
-    <dimen name="viewMenuLogoWidth">140dp</dimen>
-    <dimen name="viewMenuLogoHeight">80dp</dimen>
+    <!-- shape radius -->
+    <dimen name="radius_small">10dp</dimen>
 
 </resources>

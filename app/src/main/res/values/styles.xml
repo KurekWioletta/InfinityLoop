@@ -21,7 +21,7 @@
 
     <!-- general -->
     <style name="OuterGlow" >
-        <item name="android:shadowColor">@color/transparent_white</item>
+        <item name="android:shadowColor">@color/transparent_white_0.7</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">0</item>
@@ -48,10 +48,10 @@
 
     <!-- menu_activity -->
     <style name="MenuText" parent="Text.Normal">
-        <item name="android:layout_marginBottom">@dimen/spacing_normal</item>
-        <item name="android:layout_marginTop">@dimen/spacing_normal</item>
-        <item name="android:paddingBottom">@dimen/spacing_normal</item>
-        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_extra_small</item>
+        <item name="android:layout_marginTop">@dimen/spacing_extra_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_extra_small</item>
+        <item name="android:paddingTop">@dimen/spacing_extra_small</item>
     </style>
 
 
