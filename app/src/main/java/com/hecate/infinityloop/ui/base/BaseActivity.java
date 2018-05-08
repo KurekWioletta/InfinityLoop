@@ -37,10 +37,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-    public void setUnBinder(Unbinder unBinder) {
-        mUnBinder = unBinder;
-    }
-
     @Override
     protected void onDestroy() {
         if (mUnBinder != null) {
@@ -48,5 +44,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
+
+    public void setUnBinder(Unbinder unBinder) {
+        mUnBinder = unBinder;
+    }
+
 
 }

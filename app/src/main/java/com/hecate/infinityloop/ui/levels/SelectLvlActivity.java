@@ -3,18 +3,27 @@ package com.hecate.infinityloop.ui.levels;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
 
+import javax.inject.Inject;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SelectLvlActivity extends BaseActivity{
+public class SelectLvlActivity extends BaseActivity implements SelectLvlContract.View{
 
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, SelectLvlActivity.class);
-        return intent;
-    }
+    @Inject
+    SelectLvlPresenter<SelectLvlContract.View> mPresenter;
+
+    @Inject
+    SelectLvlPagerAdapter mPagerAdapter;
+
+    @BindView(R.id.pager_select_lvl)
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,24 @@ public class SelectLvlActivity extends BaseActivity{
         setContentView(R.layout.activity_select_lvl);
 
         getActivityComponent().inject(this);
+
         setUnBinder(ButterKnife.bind(this));
+
+        setUp();
+
+        mPresenter.onAttach(this);
+
+    }
+
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, SelectLvlActivity.class);
+        return intent;
+    }
+
+    private void setUp(){
+        Log.e("vp", "adapter set");
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOffscreenPageLimit(4);
+
     }
 }

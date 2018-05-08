@@ -18,5 +18,6 @@
 
     <!-- shape radius -->
     <dimen name="radius_small">10dp</dimen>
+    <dimen name="radius_normal">20dp</dimen>
 
 </resources>

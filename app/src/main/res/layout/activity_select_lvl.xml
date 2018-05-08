@@ -14,7 +14,7 @@
         android:src="@drawable/bg_activity_select_lvl" />
 
     <TextView
-        android:id="@+id/text_select_level_title"
+        android:id="@+id/text_select_lvl_title"
         style="@style/Text.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,17 +25,14 @@
         app:layout_constraintVertical_bias="0.138" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/pager_select_lvl"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="300dp"
         android:layout_gravity="bottom"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:paddingBottom="30dp"
-        android:paddingEnd="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingStart="5dp"
+        android:paddingEnd="70dp"
+        android:paddingStart="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -50,7 +47,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85">
 
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +54,7 @@
             android:src="@drawable/ic_menu_arrow_left" />
 
         <TextView
-            android:id="@+id/text_select_level_mode"
+            android:id="@+id/text_select_lvl_mode"
             style="@style/Text.Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,9 +70,8 @@
 
     </LinearLayout>
 
-
     <TextView
-        android:id="@+id/text_select_level_progress"
+        android:id="@+id/text_select_lvl_progress"
         style="@style/Text.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

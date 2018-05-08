@@ -40,7 +40,7 @@
             android:text="@string/menu_option1" />
 
         <TextView
-            android:id="@+id/text_menu_select_level"
+            android:id="@+id/text_menu_select_lvl"
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

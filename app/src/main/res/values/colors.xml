@@ -12,8 +12,13 @@
     <!-- Transparent -->
     <color name="transparent">#00ffffff</color>
     <color name="transparent_white_0.7">#b8ffffff</color>
-    <color name="transparent_white_0.2">#34ffffff</color>
 
+    <!-- Shadows -->
+    <color name="shadow_white_1">#00ffffff</color>
+    <color name="shadow_white_2">#05ffffff</color>
+    <color name="shadow_white_3">#0affffff</color>
+    <color name="shadow_white_4">#0fffffff</color>
+    <color name="shadow_white_5">#14ffffff</color>
 
     <!-- Gradients -->
     <color name="gradient_blue_lagoon_end">#43c6ac</color>

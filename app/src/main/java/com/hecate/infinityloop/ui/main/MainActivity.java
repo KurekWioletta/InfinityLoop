@@ -1,6 +1,7 @@
 package com.hecate.infinityloop.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.hecate.infinityloop.R;
@@ -23,8 +24,15 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         setContentView(R.layout.activity_main);
 
         getActivityComponent().inject(this);
+
         setUnBinder(ButterKnife.bind(this));
+
         mPresenter.onAttach(this);
+    }
+
+    @Override
+    public void openSelectLevelActivity() {
+        startActivity(SelectLvlActivity.getStartIntent(this));
     }
 
     @OnClick(R.id.text_menu_play)
@@ -32,7 +40,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         //do
     }
 
-    @OnClick(R.id.text_menu_select_level)
+    @OnClick(R.id.text_menu_select_lvl)
     void onSelectLevelClick(View v) {
         mPresenter.onSelectLevelClick();
     }
@@ -41,10 +49,4 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     void onShareClick(View v) {
         //do
     }
-
-    @Override
-    public void openSelectLevelActivity() {
-        startActivity(SelectLvlActivity.getStartIntent(this));
-    }
-
 }
