@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
@@ -14,7 +13,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SelectLvlActivity extends BaseActivity implements SelectLvlContract.View{
+public class SelectLvlActivity extends BaseActivity implements SelectLvlContract.View {
 
     @Inject
     SelectLvlPresenter<SelectLvlContract.View> mPresenter;
@@ -34,10 +33,9 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
         setUnBinder(ButterKnife.bind(this));
 
-        setUp();
-
         mPresenter.onAttach(this);
 
+        setUp();
     }
 
     public static Intent getStartIntent(Context context) {
@@ -45,10 +43,15 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         return intent;
     }
 
-    private void setUp(){
-        Log.e("vp", "adapter set");
+    private void setUp() {
         mViewPager.setAdapter(mPagerAdapter);
+
         mViewPager.setOffscreenPageLimit(4);
 
+        mPagerAdapter.addCardItem();
+        mPagerAdapter.addCardItem();
+        mPagerAdapter.addCardItem();
+
+        mPagerAdapter.notifyDataSetChanged();
     }
 }

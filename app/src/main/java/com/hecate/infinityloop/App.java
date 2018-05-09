@@ -10,7 +10,6 @@ import javax.inject.Inject;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-
 public class App extends Application {
 
     @Inject

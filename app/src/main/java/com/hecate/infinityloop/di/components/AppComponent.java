@@ -11,7 +11,6 @@ import javax.inject.Singleton;
 import dagger.Component;
 import dagger.android.AndroidInjector;
 
-
 @Singleton
 @Component(modules = {AppModule.class})
 public interface AppComponent extends AndroidInjector<App> {

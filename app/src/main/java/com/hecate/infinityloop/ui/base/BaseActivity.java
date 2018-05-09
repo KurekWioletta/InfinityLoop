@@ -12,7 +12,6 @@ import com.hecate.infinityloop.di.modules.ActivityModule;
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-
 public abstract class BaseActivity extends AppCompatActivity {
 
     private Unbinder mUnBinder;

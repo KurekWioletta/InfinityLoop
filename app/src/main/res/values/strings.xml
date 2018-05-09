@@ -6,6 +6,6 @@
     <string name="menu_option2">select level</string>
     <string name="menu_option3">share</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- custom strings -->
+    <string name="symbol_hashtag">#</string>
 </resources>

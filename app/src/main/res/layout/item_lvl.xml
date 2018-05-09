@@ -5,19 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    app:cardBackgroundColor="@color/transparent">
+    app:cardBackgroundColor="@color/transparent"
+    app:cardCornerRadius="@dimen/radius_small"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="true">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_item_lvl" />
+
         <TextView
-            style="@style/Text.Small"
             android:id="@+id/text_lvl_number"
+            style="@style/Text.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_normal"
             android:gravity="end"
+            android:padding="@dimen/spacing_normal"
+            android:text="#2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 

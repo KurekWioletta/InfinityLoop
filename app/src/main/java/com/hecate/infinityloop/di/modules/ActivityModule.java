@@ -4,13 +4,9 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
 import com.hecate.infinityloop.ui.levels.SelectLvlPagerAdapter;
-import com.hecate.infinityloop.ui.levels.level.LvlPresenter;
-import com.hecate.infinityloop.ui.main.MainContract;
-import com.hecate.infinityloop.ui.main.MainPresenter;
 
 import dagger.Module;
 import dagger.Provides;
-
 
 @Module
 public class ActivityModule {
@@ -33,7 +29,7 @@ public class ActivityModule {
 
     @Provides
     SelectLvlPagerAdapter provideSelectLvlPagerAdapter(AppCompatActivity activity) {
-        return new SelectLvlPagerAdapter(activity.getSupportFragmentManager());
+        return new SelectLvlPagerAdapter();
     }
 
 }

@@ -81,12 +81,3 @@
     </item>
 
 </layer-list>
-
-<!---<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke
-        android:width="@dimen/width_small"
-        android:color="@color/white" />
-    <corners android:radius="@dimen/radius_small" />
-    <solid android:color="@color/transparent_white_0.2" />
-</shape>-->
