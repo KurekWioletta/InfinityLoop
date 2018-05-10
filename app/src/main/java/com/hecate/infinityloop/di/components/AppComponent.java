@@ -20,6 +20,7 @@ public interface AppComponent extends AndroidInjector<App> {
     @ApplicationContext
     Context context();
 
-    Application application();
+    //Application application();
 
+    //DataManager getDataManager();
 }

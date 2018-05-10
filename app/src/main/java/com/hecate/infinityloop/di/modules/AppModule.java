@@ -5,6 +5,10 @@ import android.content.Context;
 
 import com.hecate.infinityloop.App;
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.data.AppDataManager;
+import com.hecate.infinityloop.data.DataManager;
+import com.hecate.infinityloop.data.db.AppDbHelper;
+import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 
 import javax.inject.Singleton;
@@ -31,6 +35,18 @@ public class AppModule {
     @Provides
     Application provideApplication() {
         return mApplication;
+    }
+
+    @Provides
+    @Singleton
+    DataManager provideDataManager(AppDataManager appDataManager) {
+        return appDataManager;
+    }
+
+    @Provides
+    @Singleton
+    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
+        return appDbHelper;
     }
 
     @Provides

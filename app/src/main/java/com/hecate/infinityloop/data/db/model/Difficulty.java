@@ -3,6 +3,7 @@ package com.hecate.infinityloop.data.db.model;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Generated;
 
 @Entity(nameInDb = "difficulty")
 public class Difficulty {
@@ -16,9 +17,19 @@ public class Difficulty {
     @Property(nameInDb = "finished_levels")
     private int finishedLevels;
 
+    @Generated(hash = 111363046)
+    public Difficulty(Long id, Long name, int finishedLevels) {
+        this.id = id;
+        this.name = name;
+        this.finishedLevels = finishedLevels;
+    }
+
+    @Generated(hash = 1708722579)
+    public Difficulty() {
+    }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -26,7 +37,7 @@ public class Difficulty {
     }
 
     public Long getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(Long name) {
@@ -34,10 +45,11 @@ public class Difficulty {
     }
 
     public int getFinishedLevels() {
-        return finishedLevels;
+        return this.finishedLevels;
     }
 
     public void setFinishedLevels(int finishedLevels) {
         this.finishedLevels = finishedLevels;
     }
+    
 }
