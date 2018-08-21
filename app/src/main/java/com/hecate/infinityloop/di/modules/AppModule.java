@@ -10,6 +10,9 @@ import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.AppDbHelper;
 import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
+import com.hecate.infinityloop.di.DatabaseInfo;
+import com.hecate.infinityloop.di.PreferenceInfo;
+import com.hecate.infinityloop.utils.AppConstants;
 
 import javax.inject.Singleton;
 
@@ -35,6 +38,12 @@ public class AppModule {
     @Provides
     Application provideApplication() {
         return mApplication;
+    }
+
+    @Provides
+    @DatabaseInfo
+    String provideDatabaseName() {
+        return AppConstants.DB_NAME;
     }
 
     @Provides

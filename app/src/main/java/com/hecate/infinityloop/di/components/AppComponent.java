@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.hecate.infinityloop.App;
+import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.modules.AppModule;
 
@@ -20,7 +21,7 @@ public interface AppComponent extends AndroidInjector<App> {
     @ApplicationContext
     Context context();
 
-    //Application application();
+    Application application();
 
-    //DataManager getDataManager();
+    DataManager getDataManager();
 }

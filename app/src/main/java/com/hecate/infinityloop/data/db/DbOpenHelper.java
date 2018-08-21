@@ -23,6 +23,7 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
     @Override
     public void onUpgrade(Database db, int oldVersion, int newVersion) {
         super.onUpgrade(db, oldVersion, newVersion);
+        //todo: AppLog class
         switch (oldVersion) {
             case 1:
             case 2:
