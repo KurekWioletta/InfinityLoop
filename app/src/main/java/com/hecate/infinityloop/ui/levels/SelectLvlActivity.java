@@ -38,6 +38,21 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         setUp();
     }
 
+    @Override
+    public void refreshTextViewProgress(int allLevels, int doneLevels) {
+        //todo
+    }
+
+    @Override
+    public void refreshTextViewDifficulty(String difficulty) {
+        //todo
+    }
+
+    @Override
+    public void refreshViewPager(String difficulty) {
+        //todo
+    }
+
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, SelectLvlActivity.class);
         return intent;
@@ -53,5 +68,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         mPagerAdapter.addCardItem();
 
         mPagerAdapter.notifyDataSetChanged();
+
+        mPresenter.onViewInitialized();
     }
 }

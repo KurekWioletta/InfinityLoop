@@ -1,13 +1,18 @@
 package com.hecate.infinityloop.ui.base;
 
+import com.hecate.infinityloop.data.DataManager;
+
 import javax.inject.Inject;
 
 public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
+    private final DataManager mDataManager;
+
     private V mMvpView;
 
     @Inject
-    public BasePresenter() {
+    public BasePresenter(DataManager dataManager) {
+        this.mDataManager = dataManager;
     }
 
     @Override
@@ -22,6 +27,10 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
     public V getMvpView() {
         return mMvpView;
+    }
+
+    public DataManager getDataManager() {
+        return mDataManager;
     }
 
 }

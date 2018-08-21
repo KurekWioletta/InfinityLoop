@@ -54,7 +54,7 @@
             android:src="@drawable/ic_menu_arrow_left" />
 
         <TextView
-            android:id="@+id/text_select_lvl_mode"
+            android:id="@+id/text_select_lvl_difficulty"
             style="@style/Text.Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

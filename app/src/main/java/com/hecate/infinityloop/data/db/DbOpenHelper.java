@@ -1,7 +1,6 @@
 package com.hecate.infinityloop.data.db;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.di.ApplicationContext;
