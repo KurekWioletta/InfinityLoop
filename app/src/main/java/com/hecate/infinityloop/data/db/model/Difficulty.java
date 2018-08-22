@@ -23,6 +23,8 @@ public class Difficulty {
     @OrderBy("id ASC")
     private List<Level> levels;
 
+
+
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
@@ -30,6 +32,16 @@ public class Difficulty {
     /** Used for active entity operations. */
     @Generated(hash = 959186299)
     private transient DifficultyDao myDao;
+
+    @Generated(hash = 1683465720)
+    public Difficulty(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Generated(hash = 1708722579)
+    public Difficulty() {
+    }
 
     public String getName() {
         return name;
@@ -101,6 +113,14 @@ public class Difficulty {
             throw new DaoException("Entity is detached from DAO context");
         }
         myDao.update(this);
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /** called by internal mechanisms, do not call yourself. */

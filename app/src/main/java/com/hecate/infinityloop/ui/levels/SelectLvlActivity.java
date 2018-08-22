@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
@@ -24,6 +25,12 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     @BindView(R.id.pager_select_lvl)
     ViewPager mViewPager;
 
+    @BindView(R.id.text_select_lvl_difficulty)
+    TextView mTextViewDifficulty;
+
+    @BindView(R.id.text_select_lvl_progress)
+    TextView mTextViewProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +46,13 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     @Override
-    public void refreshTextViewProgress(int allLevels, int doneLevels) {
-        //todo
+    public void refreshTextViewDifficulty(String difficulty) {
+        mTextViewDifficulty.setText(difficulty);
     }
 
     @Override
-    public void refreshTextViewDifficulty(String difficulty) {
-        //todo
+    public void refreshTextViewProgress(int allLevels, int doneLevels) {
+        mTextViewProgress.setText(doneLevels + '/' + allLevels);
     }
 
     @Override

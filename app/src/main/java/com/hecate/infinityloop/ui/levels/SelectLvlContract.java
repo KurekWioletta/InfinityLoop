@@ -7,8 +7,10 @@ import com.hecate.infinityloop.ui.base.MvpView;
 public class SelectLvlContract {
 
     interface View extends MvpView<SelectLvlContract.Presenter> {
-        void refreshTextViewProgress(int allLevels, int doneLevels);
         void refreshTextViewDifficulty(String difficulty);
+
+        void refreshTextViewProgress(int allLevels, int doneLevels);
+
         void refreshViewPager(String difficulty);
     }
 

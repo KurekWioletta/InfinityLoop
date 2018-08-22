@@ -22,6 +22,21 @@ public class Level {
     private boolean isFinished;
 
 
+
+    @Generated(hash = 882862952)
+    public Level(Long id, Long difficultyId, String name, boolean isFinished) {
+        this.id = id;
+        this.difficultyId = difficultyId;
+        this.name = name;
+        this.isFinished = isFinished;
+    }
+
+    @Generated(hash = 723561372)
+    public Level() {
+    }
+
+
+    
     public Long getDifficultyId() {
         return difficultyId;
     }
@@ -44,6 +59,22 @@ public class Level {
 
     public void setFinished(boolean finished) {
         isFinished = finished;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public boolean getIsFinished() {
+        return this.isFinished;
+    }
+
+    public void setIsFinished(boolean isFinished) {
+        this.isFinished = isFinished;
     }
 
 }

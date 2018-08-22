@@ -2,7 +2,7 @@ package com.hecate.infinityloop.data.db;
 
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
-import com.hecate.infinityloop.data.db.model.DifficultyDao;
+import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.db.model.LevelDao;
 
@@ -24,9 +24,8 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public String getDifficulty(Long id) {
-        return mDaoSession.getDifficultyDao().queryBuilder()
-                .where(DifficultyDao.Properties.Id.eq(id)).list().get(0).getName();
+    public List<Difficulty> getDifficulties() {
+        return mDaoSession.getDifficultyDao().loadAll();
     }
 
     @Override
@@ -40,4 +39,22 @@ public class AppDbHelper implements DbHelper{
         qb.and(LevelDao.Properties.IsFinished.eq(true), LevelDao.Properties.DifficultyId.eq(difficultyId));
         return qb.list();
     }
+
+    @Override
+    public Difficulty getCurrentDifficulty() {
+        return mDaoSession.getGameVarsDao().loadByRowId(0).getCurDifficulty();
+    }
+
+    @Override
+    public Level getNextLevel() {
+        return mDaoSession.getGameVarsDao().loadByRowId(0).getNextLevel();
+    }
+
+
+    /*@Override
+    public int getCurrentDifficulty(Long id) {
+        return 0;
+       // return mDaoSession.getGameVarsDao().queryBuilder()
+            //    .where(DifficultyDao.Properties.Id.eq(id)).list().get(0);
+    }*/
 }
