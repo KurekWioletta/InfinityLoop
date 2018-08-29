@@ -22,8 +22,13 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
         );
 
         getMvpView().refreshTextViewProgress(
-                getDataManager().getLevels(difficulty.getId()).size(),
-                getDataManager().getDoneLevels(difficulty.getId()).size()
+                getDataManager().getDoneLevels(difficulty.getId()).size(),
+                getDataManager().getLevels(difficulty.getId()).size()
         );
+
+        getMvpView().refreshViewPager(
+                getDataManager().getLevels(difficulty.getId())
+        );
+
     }
 }

@@ -1,17 +1,20 @@
 package com.hecate.infinityloop.ui.levels;
 
+import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.di.PerActivity;
 import com.hecate.infinityloop.ui.base.MvpPresenter;
 import com.hecate.infinityloop.ui.base.MvpView;
+
+import java.util.List;
 
 public class SelectLvlContract {
 
     interface View extends MvpView<SelectLvlContract.Presenter> {
         void refreshTextViewDifficulty(String difficulty);
 
-        void refreshTextViewProgress(int allLevels, int doneLevels);
+        void refreshTextViewProgress(int doneLevels, int allLevels);
 
-        void refreshViewPager(String difficulty);
+        void refreshViewPager(List<Level> levels);
     }
 
     @PerActivity

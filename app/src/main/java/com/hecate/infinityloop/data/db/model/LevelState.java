@@ -1,88 +1,99 @@
 package com.hecate.infinityloop.data.db.model;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.OrderBy;
 import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.annotation.ToMany;
-
-import java.util.List;
 import org.greenrobot.greendao.DaoException;
 
-@Entity(nameInDb = "difficulty")
-public class Difficulty {
+@Entity(nameInDb = "level_state")
+public class LevelState {
 
-    @Id(autoincrement = true)
-    private Long id;
+    @Property(nameInDb = "level_id")
+    private Long levelId;
 
-    @Property(nameInDb = "name")
-    private String name;
+    @Property(nameInDb = "is_finished")
+    private boolean isFinished;
 
-    @ToMany(referencedJoinProperty = "difficultyId")
-    @OrderBy("id ASC")
-    private List<Level> levels;
+    @Property(nameInDb = "score")
+    private boolean score;
+
+    @ToOne(joinProperty = "levelId")
+    private Level level;
 
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
 
     /** Used for active entity operations. */
-    @Generated(hash = 959186299)
-    private transient DifficultyDao myDao;
+    @Generated(hash = 1887216132)
+    private transient LevelStateDao myDao;
 
-    @Generated(hash = 1683465720)
-    public Difficulty(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    @Generated(hash = 1348675457)
+    public LevelState(Long levelId, boolean isFinished, boolean score) {
+        this.levelId = levelId;
+        this.isFinished = isFinished;
+        this.score = score;
     }
 
-    @Generated(hash = 1708722579)
-    public Difficulty() {
+    @Generated(hash = 653299111)
+    public LevelState() {
     }
 
-    public String getName() {
-        return name;
+    public Long getLevelId() {
+        return this.levelId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLevelId(Long levelId) {
+        this.levelId = levelId;
     }
 
-    public Long getId() {
-        return this.id;
+    public boolean getIsFinished() {
+        return this.isFinished;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIsFinished(boolean isFinished) {
+        this.isFinished = isFinished;
     }
 
-    /**
-     * To-many relationship, resolved on first access (and after reset).
-     * Changes to to-many relations are not persisted, make changes to the target entity.
-     */
-    @Generated(hash = 957567455)
-    public List<Level> getLevels() {
-        if (levels == null) {
+    public boolean getScore() {
+        return this.score;
+    }
+
+    public void setScore(boolean score) {
+        this.score = score;
+    }
+
+    @Generated(hash = 959019489)
+    private transient Long level__resolvedKey;
+
+    /** To-one relationship, resolved on first access. */
+    @Generated(hash = 1184076255)
+    public Level getLevel() {
+        Long __key = this.levelId;
+        if (level__resolvedKey == null || !level__resolvedKey.equals(__key)) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             LevelDao targetDao = daoSession.getLevelDao();
-            List<Level> levelsNew = targetDao._queryDifficulty_Levels(id);
+            Level levelNew = targetDao.load(__key);
             synchronized (this) {
-                if (levels == null) {
-                    levels = levelsNew;
-                }
+                level = levelNew;
+                level__resolvedKey = __key;
             }
         }
-        return levels;
+        return level;
     }
 
-    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 849450918)
-    public synchronized void resetLevels() {
-        levels = null;
+    /** called by internal mechanisms, do not call yourself. */
+    @Generated(hash = 1750736975)
+    public void setLevel(Level level) {
+        synchronized (this) {
+            this.level = level;
+            levelId = level == null ? null : level.getId();
+            level__resolvedKey = levelId;
+        }
     }
 
     /**
@@ -122,10 +133,10 @@ public class Difficulty {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 662041017)
+    @Generated(hash = 1971619349)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getDifficultyDao() : null;
+        myDao = daoSession != null ? daoSession.getLevelStateDao() : null;
     }
 
 }

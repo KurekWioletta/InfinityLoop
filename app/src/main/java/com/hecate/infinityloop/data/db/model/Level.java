@@ -13,30 +13,27 @@ public class Level {
     @Id(autoincrement = true)
     private Long id;
 
+    @Property(nameInDb = "difficulty_id")
     private Long difficultyId;
 
-    @Property(nameInDb = "name")
-    private String name;
+    @Property(nameInDb = "number")
+    private int number;
 
-    @Property(nameInDb = "is_finished")
-    private boolean isFinished;
+    @Property(nameInDb = "elements")
+    private String elements;
 
-
-
-    @Generated(hash = 882862952)
-    public Level(Long id, Long difficultyId, String name, boolean isFinished) {
+    @Generated(hash = 1267936284)
+    public Level(Long id, Long difficultyId, int number, String elements) {
         this.id = id;
         this.difficultyId = difficultyId;
-        this.name = name;
-        this.isFinished = isFinished;
+        this.number = number;
+        this.elements = elements;
     }
 
     @Generated(hash = 723561372)
     public Level() {
     }
 
-
-    
     public Long getDifficultyId() {
         return difficultyId;
     }
@@ -45,20 +42,20 @@ public class Level {
         this.difficultyId = difficultyId;
     }
 
-    public String getName() {
-        return name;
+    public String getElements() {
+        return this.elements;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setElements(String elements) {
+        this.elements = elements;
     }
 
-    public boolean isFinished() {
-        return isFinished;
+    public int getNumber() {
+        return this.number;
     }
 
-    public void setFinished(boolean finished) {
-        isFinished = finished;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public Long getId() {
@@ -67,14 +64,6 @@ public class Level {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public boolean getIsFinished() {
-        return this.isFinished;
-    }
-
-    public void setIsFinished(boolean isFinished) {
-        this.isFinished = isFinished;
     }
 
 }

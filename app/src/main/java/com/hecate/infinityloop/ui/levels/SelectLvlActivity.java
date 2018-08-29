@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.ui.base.BaseActivity;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -43,6 +47,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         mPresenter.onAttach(this);
 
         setUp();
+        setUp();
     }
 
     @Override
@@ -51,13 +56,16 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     @Override
-    public void refreshTextViewProgress(int allLevels, int doneLevels) {
+    public void refreshTextViewProgress(int doneLevels, int allLevels) {
         mTextViewProgress.setText(doneLevels + '/' + allLevels);
     }
 
     @Override
-    public void refreshViewPager(String difficulty) {
-        //todo
+    public void refreshViewPager(List<Level> levels) {
+        for(int i = 0; i < levels.size(); i++){
+            mPagerAdapter.addCardItem();
+        }
+        mPagerAdapter.notifyDataSetChanged();
     }
 
     public static Intent getStartIntent(Context context) {
@@ -67,15 +75,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
     private void setUp() {
         mViewPager.setAdapter(mPagerAdapter);
-
         mViewPager.setOffscreenPageLimit(4);
-
-        mPagerAdapter.addCardItem();
-        mPagerAdapter.addCardItem();
-        mPagerAdapter.addCardItem();
-
-        mPagerAdapter.notifyDataSetChanged();
-
         mPresenter.onViewInitialized();
     }
 }

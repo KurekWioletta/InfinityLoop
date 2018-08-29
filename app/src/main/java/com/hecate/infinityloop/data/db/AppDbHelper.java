@@ -3,6 +3,8 @@ package com.hecate.infinityloop.data.db;
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
 import com.hecate.infinityloop.data.db.model.Difficulty;
+import com.hecate.infinityloop.data.db.model.DifficultyDao;
+import com.hecate.infinityloop.data.db.model.GameVarsDao;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.db.model.LevelDao;
 
@@ -35,26 +37,27 @@ public class AppDbHelper implements DbHelper{
 
     @Override
     public List<Level> getDoneLevels(Long difficultyId) {
-        QueryBuilder<Level> qb = mDaoSession.getLevelDao().queryBuilder();
-        qb.and(LevelDao.Properties.IsFinished.eq(true), LevelDao.Properties.DifficultyId.eq(difficultyId));
-        return qb.list();
+        //QueryBuilder<Level> qb = mDaoSession.getLevelDao().queryBuilder();
+        //qb.where(LevelDao.Properties.IsFinished.eq(true), LevelDao.Properties.DifficultyId.eq(difficultyId));
+        return null;//qb.list();
     }
 
     @Override
     public Difficulty getCurrentDifficulty() {
-        return mDaoSession.getGameVarsDao().loadByRowId(0).getCurDifficulty();
+        QueryBuilder<Difficulty> qb = mDaoSession.getDifficultyDao().queryBuilder();
+        qb.where(DifficultyDao.Properties.Id.eq(
+                mDaoSession.getGameVarsDao().loadByRowId(0).getCurDifficultyId()
+        ));
+        return qb.list().get(0);
     }
 
     @Override
     public Level getNextLevel() {
-        return mDaoSession.getGameVarsDao().loadByRowId(0).getNextLevel();
+        QueryBuilder<Level> qb = mDaoSession.getLevelDao().queryBuilder();
+        qb.where(LevelDao.Properties.Id.eq(
+                mDaoSession.getGameVarsDao().loadByRowId(0).getNextLevelId()
+        ));
+        return qb.list().get(0);
     }
 
-
-    /*@Override
-    public int getCurrentDifficulty(Long id) {
-        return 0;
-       // return mDaoSession.getGameVarsDao().queryBuilder()
-            //    .where(DifficultyDao.Properties.Id.eq(id)).list().get(0);
-    }*/
 }

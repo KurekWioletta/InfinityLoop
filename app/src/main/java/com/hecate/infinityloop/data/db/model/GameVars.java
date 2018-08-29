@@ -7,25 +7,36 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity(nameInDb = "game_vars")
 public class GameVars {
 
-    @Property(nameInDb = "cur_difficulty")
-    private Difficulty curDifficulty;
+    @Property(nameInDb = "cur_difficulty_id")
+    private int curDifficultyId;
 
-    @Property(nameInDb = "next_level")
-    private Level nextLevel;
+    @Property(nameInDb = "next_level_id")
+    private int nextLevelId;
 
-    public Difficulty getCurDifficulty() {
-        return curDifficulty;
+    @Generated(hash = 2105774496)
+    public GameVars(int curDifficultyId, int nextLevelId) {
+        this.curDifficultyId = curDifficultyId;
+        this.nextLevelId = nextLevelId;
     }
 
-    public void setCurDifficulty(Difficulty curDifficulty) {
-        this.curDifficulty = curDifficulty;
+    @Generated(hash = 1887781731)
+    public GameVars() {
     }
 
-    public Level getNextLevel() {
-        return nextLevel;
+    public int getCurDifficultyId() {
+        return curDifficultyId;
     }
 
-    public void setNextLevel(Level nextLevel) {
-        this.nextLevel = nextLevel;
+    public void setCurDifficultyId(int curDifficultyId) {
+        this.curDifficultyId = curDifficultyId;
+    }
+
+    public int getNextLevelId() {
+        return nextLevelId;
+    }
+
+    public void setNextLevelId(int nextLevelId) {
+        this.nextLevelId = nextLevelId;
     }
 }
+
