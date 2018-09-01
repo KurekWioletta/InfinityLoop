@@ -6,17 +6,14 @@ import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 
-@Entity(nameInDb = "level_state")
-public class LevelState {
+@Entity(nameInDb = "done_level")
+public class DoneLevel {
 
     @Property(nameInDb = "level_id")
     private Long levelId;
 
-    @Property(nameInDb = "is_finished")
-    private boolean isFinished;
-
     @Property(nameInDb = "score")
-    private boolean score;
+    private String score;
 
     @ToOne(joinProperty = "levelId")
     private Level level;
@@ -26,18 +23,17 @@ public class LevelState {
     private transient DaoSession daoSession;
 
     /** Used for active entity operations. */
-    @Generated(hash = 1887216132)
-    private transient LevelStateDao myDao;
+    @Generated(hash = 1616130889)
+    private transient DoneLevelDao myDao;
 
-    @Generated(hash = 1348675457)
-    public LevelState(Long levelId, boolean isFinished, boolean score) {
+    @Generated(hash = 1922854564)
+    public DoneLevel(Long levelId, String score) {
         this.levelId = levelId;
-        this.isFinished = isFinished;
         this.score = score;
     }
 
-    @Generated(hash = 653299111)
-    public LevelState() {
+    @Generated(hash = 971814059)
+    public DoneLevel() {
     }
 
     public Long getLevelId() {
@@ -48,19 +44,11 @@ public class LevelState {
         this.levelId = levelId;
     }
 
-    public boolean getIsFinished() {
-        return this.isFinished;
-    }
-
-    public void setIsFinished(boolean isFinished) {
-        this.isFinished = isFinished;
-    }
-
-    public boolean getScore() {
+    public String getScore() {
         return this.score;
     }
 
-    public void setScore(boolean score) {
+    public void setScore(String score) {
         this.score = score;
     }
 
@@ -133,10 +121,10 @@ public class LevelState {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1971619349)
+    @Generated(hash = 1794164514)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getLevelStateDao() : null;
+        myDao = daoSession != null ? daoSession.getDoneLevelDao() : null;
     }
 
 }

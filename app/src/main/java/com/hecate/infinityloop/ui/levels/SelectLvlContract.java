@@ -10,6 +10,7 @@ import java.util.List;
 public class SelectLvlContract {
 
     interface View extends MvpView<SelectLvlContract.Presenter> {
+
         void refreshTextViewDifficulty(String difficulty);
 
         void refreshTextViewProgress(int doneLevels, int allLevels);
@@ -19,7 +20,12 @@ public class SelectLvlContract {
 
     @PerActivity
     interface Presenter<V extends View> extends MvpPresenter<V> {
+
         void onViewInitialized();
+
+        void onPreviousDifficultyClick();
+
+        void onNextDifficultyClick();
     }
 
 }

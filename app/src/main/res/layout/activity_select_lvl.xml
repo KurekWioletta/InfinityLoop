@@ -48,6 +48,7 @@
         app:layout_constraintVertical_bias="0.85">
 
         <ImageButton
+            android:id="@+id/image_select_lvl_previous_difficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -63,6 +64,7 @@
             android:text="begginer" />
 
         <ImageButton
+            android:id="@+id/image_select_lvl_next_difficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"

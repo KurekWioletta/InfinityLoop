@@ -48,5 +48,4 @@ public abstract class BaseActivity extends AppCompatActivity {
         mUnBinder = unBinder;
     }
 
-
 }

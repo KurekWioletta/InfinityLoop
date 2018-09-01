@@ -24,7 +24,7 @@ public class GameVars {
     }
 
     public int getCurDifficultyId() {
-        return curDifficultyId;
+        return this.curDifficultyId;
     }
 
     public void setCurDifficultyId(int curDifficultyId) {
@@ -32,11 +32,12 @@ public class GameVars {
     }
 
     public int getNextLevelId() {
-        return nextLevelId;
+        return this.nextLevelId;
     }
 
     public void setNextLevelId(int nextLevelId) {
         this.nextLevelId = nextLevelId;
     }
+
 }
 

@@ -1,15 +1,21 @@
 package com.hecate.infinityloop.data.db;
 
+import android.util.Log;
+
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.DifficultyDao;
+import com.hecate.infinityloop.data.db.model.DoneLevel;
+import com.hecate.infinityloop.data.db.model.DoneLevelDao;
 import com.hecate.infinityloop.data.db.model.GameVarsDao;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.db.model.LevelDao;
 
+import org.greenrobot.greendao.query.Join;
 import org.greenrobot.greendao.query.QueryBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -36,17 +42,18 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public List<Level> getDoneLevels(Long difficultyId) {
-        //QueryBuilder<Level> qb = mDaoSession.getLevelDao().queryBuilder();
-        //qb.where(LevelDao.Properties.IsFinished.eq(true), LevelDao.Properties.DifficultyId.eq(difficultyId));
-        return null;//qb.list();
+    public List<DoneLevel> getDoneLevels(Long difficultyId) {
+        QueryBuilder<DoneLevel> qb = mDaoSession.getDoneLevelDao().queryBuilder();
+        Join level = qb.join(DoneLevelDao.Properties.LevelId, Level.class);
+        level.where(LevelDao.Properties.DifficultyId.eq(difficultyId));
+        return qb.list();
     }
 
     @Override
     public Difficulty getCurrentDifficulty() {
         QueryBuilder<Difficulty> qb = mDaoSession.getDifficultyDao().queryBuilder();
         qb.where(DifficultyDao.Properties.Id.eq(
-                mDaoSession.getGameVarsDao().loadByRowId(0).getCurDifficultyId()
+                mDaoSession.getGameVarsDao().loadByRowId(1).getCurDifficultyId()
         ));
         return qb.list().get(0);
     }

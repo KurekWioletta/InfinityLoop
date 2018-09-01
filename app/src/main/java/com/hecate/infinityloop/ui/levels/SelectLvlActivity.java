@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SelectLvlActivity extends BaseActivity implements SelectLvlContract.View {
 
@@ -47,7 +49,6 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         mPresenter.onAttach(this);
 
         setUp();
-        setUp();
     }
 
     @Override
@@ -57,7 +58,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
     @Override
     public void refreshTextViewProgress(int doneLevels, int allLevels) {
-        mTextViewProgress.setText(doneLevels + '/' + allLevels);
+        mTextViewProgress.setText(doneLevels + "/" + allLevels);
     }
 
     @Override
@@ -66,6 +67,16 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
             mPagerAdapter.addCardItem();
         }
         mPagerAdapter.notifyDataSetChanged();
+    }
+
+    @OnClick(R.id.image_select_lvl_previous_difficulty)
+    void onPreviousDifficultyClick(View v) {
+        mPresenter.onPreviousDifficultyClick();
+    }
+
+    @OnClick(R.id.image_select_lvl_next_difficulty)
+    void onNextDifficultyClick(View v) {
+        mPresenter.onNextDifficultyClick();
     }
 
     public static Intent getStartIntent(Context context) {

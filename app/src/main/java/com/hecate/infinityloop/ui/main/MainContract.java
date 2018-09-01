@@ -7,11 +7,13 @@ import com.hecate.infinityloop.ui.base.MvpView;
 public interface MainContract extends MvpView {
 
     interface View extends MvpView<Presenter> {
+
         void openSelectLevelActivity();
     }
 
     @PerActivity
     interface Presenter<V extends View> extends MvpPresenter<V> {
+
         void onSelectLevelClick();
     }
 

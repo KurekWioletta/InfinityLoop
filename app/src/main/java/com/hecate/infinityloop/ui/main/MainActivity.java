@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @OnClick(R.id.text_menu_play)
     void onPlayClick(View v) {
-        //do
+        //todo
     }
 
     @OnClick(R.id.text_menu_select_lvl)
@@ -47,6 +47,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @OnClick(R.id.text_menu_share)
     void onShareClick(View v) {
-        //do
+        //todo
     }
 }
