@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.ui.levels;
+package com.hecate.infinityloop.ui.selectlvl.level;
 
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.data.db.model.Level;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,10 @@ import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SelectLvlPagerAdapter extends PagerAdapter {
+public class LevelAdapter extends PagerAdapter {
 
-    private List<CardView> mViews;
+    private List<CardView> mViewList;
+    private List<Level> mLevelList;
 
     @BindString(R.string.symbol_hashtag)
     String symbolHashtag;
@@ -30,8 +32,9 @@ public class SelectLvlPagerAdapter extends PagerAdapter {
     @BindView(R.id.text_lvl_number)
     TextView textLvlNumber;
 
-    public SelectLvlPagerAdapter() {
-        mViews = new ArrayList<>();
+    public LevelAdapter() {
+        mViewList = new ArrayList<>();
+        mLevelList = new ArrayList<>();
     }
 
     @NonNull
@@ -44,7 +47,7 @@ public class SelectLvlPagerAdapter extends PagerAdapter {
 
         container.addView(view);
 
-        mViews.set(position, cardLvl);
+        mViewList.set(position, cardLvl);
 
         setUp(position);
 
@@ -53,7 +56,7 @@ public class SelectLvlPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return mViews.size();
+        return mViewList.size();
     }
 
     @Override
@@ -64,11 +67,12 @@ public class SelectLvlPagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
-        mViews.set(position, null);
+        mViewList.set(position, null);
     }
 
-    public void addCardItem() {
-        mViews.add(null);
+    public void addItem(Level level) {
+        mViewList.add(null);
+        mLevelList.add(level);
     }
 
     private void setUp(int position) {

@@ -21,7 +21,7 @@ public class Difficulty {
 
     @ToMany(referencedJoinProperty = "difficultyId")
     @OrderBy("id ASC")
-    private List<Level> levels;
+    private List<Level> levelList;
 
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
@@ -41,14 +41,6 @@ public class Difficulty {
     public Difficulty() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Long getId() {
         return this.id;
     }
@@ -57,32 +49,40 @@ public class Difficulty {
         this.id = id;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
      */
-    @Generated(hash = 957567455)
-    public List<Level> getLevels() {
-        if (levels == null) {
+    @Generated(hash = 1306379597)
+    public List<Level> getLevelList() {
+        if (levelList == null) {
             final DaoSession daoSession = this.daoSession;
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
             LevelDao targetDao = daoSession.getLevelDao();
-            List<Level> levelsNew = targetDao._queryDifficulty_Levels(id);
+            List<Level> levelListNew = targetDao._queryDifficulty_LevelList(id);
             synchronized (this) {
-                if (levels == null) {
-                    levels = levelsNew;
+                if (levelList == null) {
+                    levelList = levelListNew;
                 }
             }
         }
-        return levels;
+        return levelList;
     }
 
     /** Resets a to-many relationship, making the next get call to query for a fresh result. */
-    @Generated(hash = 849450918)
-    public synchronized void resetLevels() {
-        levels = null;
+    @Generated(hash = 81995035)
+    public synchronized void resetLevelList() {
+        levelList = null;
     }
 
     /**
@@ -127,5 +127,5 @@ public class Difficulty {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getDifficultyDao() : null;
     }
-
+    
 }

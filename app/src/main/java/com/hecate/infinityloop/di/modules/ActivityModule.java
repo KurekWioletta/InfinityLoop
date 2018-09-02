@@ -3,10 +3,8 @@ package com.hecate.infinityloop.di.modules;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
-import com.hecate.infinityloop.data.db.DbHelper;
-import com.hecate.infinityloop.ui.levels.SelectLvlPagerAdapter;
-
-import javax.inject.Singleton;
+import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
+import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapterTransformer;
 
 import dagger.Module;
 import dagger.Provides;
@@ -31,9 +29,8 @@ public class ActivityModule {
     }
 
     @Provides
-    SelectLvlPagerAdapter provideSelectLvlPagerAdapter(AppCompatActivity activity) {
-        return new SelectLvlPagerAdapter();
+    LevelAdapter provideSelectLvlPagerAdapter() {
+        return new LevelAdapter();
     }
-
 
 }

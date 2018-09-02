@@ -1,9 +1,9 @@
-INSERT INTO `level` VALUES (1,1,2,'1,2,3');
-INSERT INTO `level` VALUES (2,1,3,'1,2,3,4');
-INSERT INTO `level` VALUES (3,1,4,'1,2');
-INSERT INTO `level` VALUES (4,2,1,'1,2,3');
-INSERT INTO `level` VALUES (5,2,2,'1,2,3');
-INSERT INTO `level` VALUES (6,2,3,'1,2,3,4');
+INSERT INTO `level` VALUES (1,1,1,'1,2,3');
+INSERT INTO `level` VALUES (2,1,2,'1,2,3,4');
+INSERT INTO `level` VALUES (3,1,3,'1,2');
+INSERT INTO `level` VALUES (4,1,4,'1,2,3');
+INSERT INTO `level` VALUES (5,2,1,'1,2,3');
+INSERT INTO `level` VALUES (6,2,1,'1,2,3,4');
 INSERT INTO `game_vars` VALUES (1,1);
 INSERT INTO `element` VALUES (1,'1');
 INSERT INTO `element` VALUES (2,'2');

@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.levels.SelectLvlActivity"></activity>
+        <activity android:name=".ui.selectlvl.SelectLvlActivity"></activity>
     </application>
 
 </manifest>

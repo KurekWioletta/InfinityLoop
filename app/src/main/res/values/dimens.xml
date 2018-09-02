@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-
     <!-- font sizes -->
     <dimen name="text_small">18sp</dimen>
     <dimen name="text_normal">24sp</dimen>
     <dimen name="text_large">30sp</dimen>
-
 
     <!-- spacing between two views -->
     <dimen name="spacing_extra_small">4dp</dimen>
@@ -15,9 +13,12 @@
     <!-- shape widths -->
     <dimen name="width_small">2dp</dimen>
 
-
     <!-- shape radius -->
     <dimen name="radius_small">10dp</dimen>
     <dimen name="radius_normal">20dp</dimen>
+
+    <!-- custom dimens -->
+    <dimen name="view_pager_padding">65dp</dimen>
+    <dimen name="view_pager_page_margin">4dp</dimen>
 
 </resources>

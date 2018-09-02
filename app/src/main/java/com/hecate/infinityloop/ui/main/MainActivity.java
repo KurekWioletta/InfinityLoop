@@ -1,12 +1,11 @@
 package com.hecate.infinityloop.ui.main;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
-import com.hecate.infinityloop.ui.levels.SelectLvlActivity;
+import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
 
 import javax.inject.Inject;
 

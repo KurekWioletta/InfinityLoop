@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.ui.levels;
+package com.hecate.infinityloop.ui.selectlvl;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,10 @@ import android.widget.TextView;
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.ui.base.BaseActivity;
+import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
+import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapterTransformer;
+import com.hecate.infinityloop.utils.ViewConstants;
+import com.hecate.infinityloop.utils.ScreenUtils;
 
 import java.util.List;
 
@@ -26,7 +30,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     SelectLvlPresenter<SelectLvlContract.View> mPresenter;
 
     @Inject
-    SelectLvlPagerAdapter mPagerAdapter;
+    LevelAdapter mLevelAdapter;
 
     @BindView(R.id.pager_select_lvl)
     ViewPager mViewPager;
@@ -62,11 +66,11 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     @Override
-    public void refreshViewPager(List<Level> levels) {
-        for(int i = 0; i < levels.size(); i++){
-            mPagerAdapter.addCardItem();
+    public void refreshViewPager(List<Level> levelList) {
+        for(Level level : levelList){
+            mLevelAdapter.addItem(level);
         }
-        mPagerAdapter.notifyDataSetChanged();
+        mLevelAdapter.notifyDataSetChanged();
     }
 
     @OnClick(R.id.image_select_lvl_previous_difficulty)
@@ -85,7 +89,21 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     private void setUp() {
-        mViewPager.setAdapter(mPagerAdapter);
+        float screenWidth = ScreenUtils.getScreenWidth(this);
+        float scale = ViewConstants.VIEW_PAGER_SMALLER_SCALE;
+
+        int partialWidth = (int) getResources().getDimension(R.dimen.view_pager_padding);
+        int pageMargin = (int) getResources().getDimension(R.dimen.view_pager_page_margin);
+
+        int viewPagerPadding = partialWidth + pageMargin;
+
+        mViewPager.setPageMargin(pageMargin);
+
+        mViewPager.setPageTransformer(false, new LevelAdapterTransformer(
+                scale,
+                viewPagerPadding/(screenWidth - 2*viewPagerPadding)));
+
+        mViewPager.setAdapter(mLevelAdapter);
         mViewPager.setOffscreenPageLimit(4);
         mPresenter.onViewInitialized();
     }

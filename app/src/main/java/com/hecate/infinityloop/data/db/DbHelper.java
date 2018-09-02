@@ -8,13 +8,17 @@ import java.util.List;
 
 public interface DbHelper {
 
-    List<Difficulty>  getDifficulties();
+    List<Difficulty> getDifficultyList();
 
-    List<Level> getLevels(Long difficultyId);
+    List<Level> getLevelList(Long difficultyId);
 
-    List<DoneLevel> getDoneLevels(Long difficultyId);
+    List<DoneLevel> getDoneLevelList(Long difficultyId);
 
     Difficulty getCurrentDifficulty();
+
+    Difficulty getNextDifficulty(Long difficultyId);
+
+    Difficulty getPreviousDifficulty(Long difficultyId);
 
     Level getNextLevel();
 

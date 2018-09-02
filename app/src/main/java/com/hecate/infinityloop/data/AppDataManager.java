@@ -27,23 +27,33 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public List<Difficulty> getDifficulties() {
+    public List<Difficulty> getDifficultyList() {
         return null;
     }
 
     @Override
-    public List<Level> getLevels(Long difficultyId) {
-        return mDbHelper.getLevels(difficultyId);
+    public List<Level> getLevelList(Long difficultyId) {
+        return mDbHelper.getLevelList(difficultyId);
     }
 
     @Override
-    public List<DoneLevel> getDoneLevels(Long difficultyId) {
-        return mDbHelper.getDoneLevels(difficultyId);
+    public List<DoneLevel> getDoneLevelList(Long difficultyId) {
+        return mDbHelper.getDoneLevelList(difficultyId);
     }
 
     @Override
     public Difficulty getCurrentDifficulty() {
         return mDbHelper.getCurrentDifficulty();
+    }
+
+    @Override
+    public Difficulty getNextDifficulty(Long difficultyId) {
+        return mDbHelper.getNextDifficulty(difficultyId);
+    }
+
+    @Override
+    public Difficulty getPreviousDifficulty(Long difficultyId) {
+        return mDbHelper.getPreviousDifficulty(difficultyId);
     }
 
     @Override

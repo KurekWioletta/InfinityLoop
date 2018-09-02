@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:padding="@dimen/spacing_normal"
-            android:text="#2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 

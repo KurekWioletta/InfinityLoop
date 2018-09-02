@@ -32,17 +32,17 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public List<Difficulty> getDifficulties() {
+    public List<Difficulty> getDifficultyList() {
         return mDaoSession.getDifficultyDao().loadAll();
     }
 
     @Override
-    public List<Level> getLevels(Long difficultyId) {
-        return mDaoSession.getLevelDao()._queryDifficulty_Levels(difficultyId);
+    public List<Level> getLevelList(Long difficultyId) {
+        return mDaoSession.getLevelDao()._queryDifficulty_LevelList(difficultyId);
     }
 
     @Override
-    public List<DoneLevel> getDoneLevels(Long difficultyId) {
+    public List<DoneLevel> getDoneLevelList(Long difficultyId) {
         QueryBuilder<DoneLevel> qb = mDaoSession.getDoneLevelDao().queryBuilder();
         Join level = qb.join(DoneLevelDao.Properties.LevelId, Level.class);
         level.where(LevelDao.Properties.DifficultyId.eq(difficultyId));
@@ -51,20 +51,31 @@ public class AppDbHelper implements DbHelper{
 
     @Override
     public Difficulty getCurrentDifficulty() {
-        QueryBuilder<Difficulty> qb = mDaoSession.getDifficultyDao().queryBuilder();
-        qb.where(DifficultyDao.Properties.Id.eq(
-                mDaoSession.getGameVarsDao().loadByRowId(1).getCurDifficultyId()
-        ));
-        return qb.list().get(0);
+        return  mDaoSession.getDifficultyDao().load(
+                mDaoSession.getGameVarsDao().loadByRowId(1).getCurDifficultyId());
+    }
+
+    @Override
+    public Difficulty getNextDifficulty(Long difficultyId) {
+        if (mDaoSession.getDifficultyDao().load(difficultyId + 1) != null)
+            return mDaoSession.getDifficultyDao().load(difficultyId + 1);
+
+        return mDaoSession.getDifficultyDao().load((long) 1);
+    }
+
+    @Override
+    public Difficulty getPreviousDifficulty(Long difficultyId) {
+        if (mDaoSession.getDifficultyDao().load(difficultyId - 1) != null)
+            return mDaoSession.getDifficultyDao().load(difficultyId - 1);
+
+        return mDaoSession.getDifficultyDao().load(
+                mDaoSession.getDifficultyDao().count());
     }
 
     @Override
     public Level getNextLevel() {
-        QueryBuilder<Level> qb = mDaoSession.getLevelDao().queryBuilder();
-        qb.where(LevelDao.Properties.Id.eq(
-                mDaoSession.getGameVarsDao().loadByRowId(0).getNextLevelId()
-        ));
-        return qb.list().get(0);
+        return  mDaoSession.getLevelDao().load(
+                mDaoSession.getGameVarsDao().loadByRowId(1).getNextLevelId());
     }
 
 }

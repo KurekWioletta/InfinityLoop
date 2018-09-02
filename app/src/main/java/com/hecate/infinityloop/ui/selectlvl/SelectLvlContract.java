@@ -1,4 +1,4 @@
-package com.hecate.infinityloop.ui.levels;
+package com.hecate.infinityloop.ui.selectlvl;
 
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.di.PerActivity;
@@ -15,7 +15,7 @@ public class SelectLvlContract {
 
         void refreshTextViewProgress(int doneLevels, int allLevels);
 
-        void refreshViewPager(List<Level> levels);
+        void refreshViewPager(List<Level> levelList);
     }
 
     @PerActivity

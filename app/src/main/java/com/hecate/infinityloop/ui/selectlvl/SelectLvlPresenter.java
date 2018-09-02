@@ -1,6 +1,4 @@
-package com.hecate.infinityloop.ui.levels;
-
-import android.util.Log;
+package com.hecate.infinityloop.ui.selectlvl;
 
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.model.Difficulty;
@@ -24,27 +22,31 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
 
     @Override
     public void onPreviousDifficultyClick() {
-        //Difficulty difficulty = getDataManager().getNextLevel();
-        Log.e("aaaa", "prv");
+        Difficulty difficulty = getDataManager().getPreviousDifficulty(
+                getDataManager().getChosenDifficulty());
+
+        getDataManager().setChosenDifficulty(difficulty.getId());
+        getDifficultyData(difficulty);
     }
 
     @Override
     public void onNextDifficultyClick() {
-        Log.e("aaaa", "nxt");
+        Difficulty difficulty = getDataManager().getNextDifficulty(
+                getDataManager().getChosenDifficulty());
+
+        getDataManager().setChosenDifficulty(difficulty.getId());
+        getDifficultyData(difficulty);
     }
 
     private void getDifficultyData(Difficulty difficulty){
         getMvpView().refreshTextViewDifficulty(
-                difficulty.getName()
-        );
+                difficulty.getName());
 
         getMvpView().refreshTextViewProgress(
-                getDataManager().getDoneLevels(difficulty.getId()).size(),
-                getDataManager().getLevels(difficulty.getId()).size()
-        );
+                getDataManager().getDoneLevelList(difficulty.getId()).size(),
+                getDataManager().getLevelList(difficulty.getId()).size());
 
         getMvpView().refreshViewPager(
-                getDataManager().getLevels(difficulty.getId())
-        );
+                getDataManager().getLevelList(difficulty.getId()));
     }
 }
