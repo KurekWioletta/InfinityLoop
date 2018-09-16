@@ -1,5 +1,7 @@
 package com.hecate.infinityloop.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,7 +25,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         setContentView(R.layout.activity_main);
 
         getActivityComponent().inject(this);
-
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
@@ -47,5 +48,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @OnClick(R.id.text_menu_share)
     void onShareClick(View v) {
         //todo
+    }
+
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
     }
 }

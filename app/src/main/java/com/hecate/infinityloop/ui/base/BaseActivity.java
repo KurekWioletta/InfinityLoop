@@ -12,7 +12,7 @@ import com.hecate.infinityloop.di.modules.ActivityModule;
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements MvpView {
 
     private Unbinder mUnBinder;
     private ActivityComponent mActivityComponent;
@@ -42,6 +42,16 @@ public abstract class BaseActivity extends AppCompatActivity {
             mUnBinder.unbind();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onError(int resId) {
+
+    }
+
+    @Override
+    public void showMessage(int resId) {
+
     }
 
     public void setUnBinder(Unbinder unBinder) {

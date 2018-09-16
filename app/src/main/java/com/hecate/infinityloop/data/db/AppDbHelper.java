@@ -1,36 +1,76 @@
 package com.hecate.infinityloop.data.db;
 
-import android.util.Log;
 
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
 import com.hecate.infinityloop.data.db.model.Difficulty;
-import com.hecate.infinityloop.data.db.model.DifficultyDao;
 import com.hecate.infinityloop.data.db.model.DoneLevel;
 import com.hecate.infinityloop.data.db.model.DoneLevelDao;
-import com.hecate.infinityloop.data.db.model.GameVarsDao;
+import com.hecate.infinityloop.data.db.model.GameVars;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.db.model.LevelDao;
 
 import org.greenrobot.greendao.query.Join;
 import org.greenrobot.greendao.query.QueryBuilder;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.Observable;
+
 @Singleton
 public class AppDbHelper implements DbHelper{
 
-    private final DaoSession mDaoSession;
+    private DaoSession mDaoSession;
+    private DbOpenHelper mDbOpenHelper;
 
     @Inject
     public AppDbHelper(DbOpenHelper dbOpenHelper) {
-        this.mDaoSession = new DaoMaster(dbOpenHelper.getWritableDb()).newSession();
+        this.mDbOpenHelper = dbOpenHelper;
     }
 
+    //db create and import
+    @Override
+    public void createNewSession() {
+        mDaoSession = new DaoMaster(mDbOpenHelper.getWritableDb()).newSession();
+    }
+
+    @Override
+    public Observable<Boolean> createDatabase() {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                createNewSession();
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public Observable<Boolean> finishDatabaseImport() {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() {
+                try {
+                    mDbOpenHelper.importDatabase(mDbOpenHelper.getWritableDb());
+                    return true;
+                } catch (IOException e) {
+                    return false;
+                }
+            }
+        });
+    }
+    @Override
+    public boolean isImportFinished() {
+        return mDaoSession.getGameVarsDao().loadByRowId(1) != null && mDaoSession.getGameVarsDao().loadByRowId(1).getIsImportFinished();
+    }
+
+
+    //database queries
     @Override
     public List<Difficulty> getDifficultyList() {
         return mDaoSession.getDifficultyDao().loadAll();

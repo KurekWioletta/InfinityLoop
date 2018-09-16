@@ -1,10 +1,10 @@
+INSERT OR REPLACE INTO `game_vars` VALUES (1, COALESCE((SELECT cur_difficulty_id FROM `game_vars` LIMIT 1), 1), COALESCE((SELECT next_level_id FROM `game_vars` LIMIT 1), 1), 0);
 INSERT INTO `level` VALUES (1,1,1,'1,2,3');
 INSERT INTO `level` VALUES (2,1,2,'1,2,3,4');
 INSERT INTO `level` VALUES (3,1,3,'1,2');
 INSERT INTO `level` VALUES (4,1,4,'1,2,3');
 INSERT INTO `level` VALUES (5,2,1,'1,2,3');
 INSERT INTO `level` VALUES (6,2,1,'1,2,3,4');
-INSERT INTO `game_vars` VALUES (1,1);
 INSERT INTO `element` VALUES (1,'1');
 INSERT INTO `element` VALUES (2,'2');
 INSERT INTO `element` VALUES (3,'3');
@@ -16,3 +16,4 @@ INSERT INTO `difficulty` VALUES (1,'aaaaa');
 INSERT INTO `difficulty` VALUES (2,'bbbbbbb');
 INSERT INTO `difficulty` VALUES (3,'ccc');
 INSERT INTO `difficulty` VALUES (4,'dddddddddddd');
+UPDATE `game_vars` SET is_import_finished = 1;

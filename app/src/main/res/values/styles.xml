@@ -15,7 +15,9 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
-
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_activity_splash</item>
+    </style>
 
     <!-- custom themes -->
 

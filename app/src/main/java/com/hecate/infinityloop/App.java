@@ -6,6 +6,7 @@ import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.di.components.AppComponent;
 import com.hecate.infinityloop.di.components.DaggerAppComponent;
 import com.hecate.infinityloop.di.modules.AppModule;
+import com.hecate.infinityloop.utils.AppLog;
 
 import javax.inject.Inject;
 
@@ -31,6 +32,8 @@ public class App extends Application {
                 .build();
 
         mAppComponent.inject(this);
+
+        AppLog.init();
 
         CalligraphyConfig.initDefault(mCalligraphyConfig);
     }

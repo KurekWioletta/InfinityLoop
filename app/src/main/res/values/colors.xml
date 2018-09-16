@@ -21,6 +21,6 @@
     <color name="shadow_white_5">#14ffffff</color>
 
     <!-- Gradients -->
-    <color name="gradient_blue_lagoon_end">#43c6ac</color>
-    <color name="gradient_blue_lagoon_start">#191654</color>
+    <color name="gradient_blue_lagoon_start">#43c6ac</color>
+    <color name="gradient_blue_lagoon_end">#191654</color>
 </resources>

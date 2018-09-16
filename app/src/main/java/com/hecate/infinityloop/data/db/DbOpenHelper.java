@@ -8,6 +8,7 @@ import android.util.Log;
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
+import com.hecate.infinityloop.utils.AppLog;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -33,22 +34,28 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
     private Context mContext;
 
     @Inject
-    public DbOpenHelper(@ApplicationContext Context context, @DatabaseInfo String name) {
-        super(context, name);
+    public DbOpenHelper(@ApplicationContext Context context, @DatabaseInfo String dbName) {
+        super(context, dbName);
         this.mContext = context;
 
-        DB_NAME = name;
+        DB_NAME = dbName;
     }
 
     @Override
-    public void onCreate(Database db) {
+    public void onCreate(Database db){
         super.onCreate(db);
-        importDatabase(db);
+        try {
+            importDatabase(db);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void onUpgrade(Database db, int oldVersion, int newVersion) {
         super.onUpgrade(db, oldVersion, newVersion);
+
+        AppLog.d("DEBUG", "DB_OLD_VERSION : " + oldVersion + ", DB_NEW_VERSION : " + newVersion);
 
         switch (oldVersion) {
             case 1:
@@ -56,17 +63,20 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
         }
     }
 
-    private void importDatabase(Database db) {
-        Log.e("dfdfs",DB_NAME);
+    public void importDatabase(Database db) throws IOException {
         String backupFile = DB_NAME.split("\\.")[0] + ".sql";
 
         try (BufferedReader br = new BufferedReader( new InputStreamReader(mContext.getAssets().open(backupFile)))) {
             for(String line; (line = br.readLine()) != null; ) {
                 db.execSQL(line);
+                for(int i = 0; i < 100000; i++)
+                    Log.e("aaa", "aaa");
             }
+            Log.e("DDDDD", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         } catch (IOException e){
-            //todo error message
+            throw e;
         }
+
     }
 
 }

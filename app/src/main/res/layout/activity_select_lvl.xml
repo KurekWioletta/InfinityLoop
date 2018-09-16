@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/menu_option2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pager_select_lvl"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_select_lvl"
@@ -44,8 +44,8 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85">
+        app:layout_constraintTop_toBottomOf="@+id/pager_select_lvl"
+        app:layout_constraintVertical_bias="0.261">
 
         <ImageButton
             android:id="@+id/image_select_lvl_previous_difficulty"
@@ -57,10 +57,9 @@
         <TextView
             android:id="@+id/text_select_lvl_difficulty"
             style="@style/Text.Normal"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/select_level_text_difficulty_width"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/spacing_normal"
-            android:paddingRight="@dimen/spacing_normal" />
+            android:gravity="center" />
 
         <ImageButton
             android:id="@+id/image_select_lvl_next_difficulty"
@@ -79,7 +78,8 @@
         android:gravity="center"
         android:text="1/2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintTop_toBottomOf="@+id/pager_select_lvl"
+        app:layout_constraintVertical_bias="0.575"
+        tools:layout_editor_absoluteX="0dp" />
 
 </android.support.constraint.ConstraintLayout>

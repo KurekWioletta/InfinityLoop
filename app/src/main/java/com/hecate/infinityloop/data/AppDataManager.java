@@ -8,22 +8,51 @@ import com.hecate.infinityloop.data.db.model.DoneLevel;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.status.StatusHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
+import com.hecate.infinityloop.di.DatabaseInfo;
 
+import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+
 public class AppDataManager implements DataManager {
+
+    private static String DB_NAME;
 
     private final Context mContext;
     private final DbHelper mDbHelper;
     private final StatusHelper mStatusHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StatusHelper statusHelper) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StatusHelper statusHelper, @DatabaseInfo String dbName) {
         mContext = context;
         mDbHelper = dbHelper;
         mStatusHelper = statusHelper;
+
+        DB_NAME = dbName;
+    }
+
+    //DbHelper
+    @Override
+    public void createNewSession() {
+        mDbHelper.createNewSession();
+    }
+
+    @Override
+    public Observable<Boolean> createDatabase() {
+        return mDbHelper.createDatabase();
+    }
+
+    @Override
+    public Observable<Boolean>  finishDatabaseImport() {
+        return mDbHelper.finishDatabaseImport();
+    }
+
+    @Override
+    public boolean isImportFinished() {
+        return mDbHelper.isImportFinished();
     }
 
     @Override
@@ -61,6 +90,8 @@ public class AppDataManager implements DataManager {
         return mDbHelper.getNextLevel();
     }
 
+
+    //StatusHelper
     @Override
     public long getChosenDifficulty() {
         return mStatusHelper.getChosenDifficulty();
@@ -71,4 +102,11 @@ public class AppDataManager implements DataManager {
         mStatusHelper.setChosenDifficulty(difficultyId);
     }
 
+
+    //DataManager
+    @Override
+    public boolean doesDatabaseExist() {
+        File dbFile = mContext.getDatabasePath(DB_NAME);
+        return dbFile.exists();
+    }
 }

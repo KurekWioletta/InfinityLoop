@@ -47,12 +47,13 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         setContentView(R.layout.activity_select_lvl);
 
         getActivityComponent().inject(this);
-
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
 
         setUp();
+
+        mPresenter.onViewInitialized();
     }
 
     @Override
@@ -105,6 +106,5 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
         mViewPager.setAdapter(mLevelAdapter);
         mViewPager.setOffscreenPageLimit(4);
-        mPresenter.onViewInitialized();
     }
 }
