@@ -23,16 +23,7 @@ public class SplashPresenter<V extends SplashContract.View> extends BasePresente
     public void onAttach(V mMvpView) {
         super.onAttach(mMvpView);
 
-        if (getDataManager().doesDatabaseExist()) {
-            getDataManager().createNewSession();
-
-            if (getDataManager().isImportFinished())
-                getMvpView().openMainActivity();
-            else
-                finishDatabaseImport();
-        }
-        else
-            createDatabase();
+        createDatabase();
     }
 
     @Override
@@ -51,33 +42,6 @@ public class SplashPresenter<V extends SplashContract.View> extends BasePresente
                     @Override
                     public ObservableSource<Boolean> apply(Boolean aBoolean) throws Exception {
                         return getDataManager().createDatabase();
-                    }
-                })
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean){
-                        getMvpView().openMainActivity();
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) {
-                        getMvpView().hideAppLoading();
-                        getMvpView().onError(R.string.err_database_create);
-                    }
-                }));
-    }
-
-    private void finishDatabaseImport() {
-        getMvpView().showAppLoading();
-
-        getCompositeDisposable().add(getDataManager()
-                .createDatabase()
-                .subscribeOn(getSchedulerProvider().io())
-                .observeOn(getSchedulerProvider().ui())
-                .concatMap(new Function<Boolean, ObservableSource<Boolean>>() {
-                    @Override
-                    public ObservableSource<Boolean> apply(Boolean aBoolean) throws Exception {
-                        return getDataManager().finishDatabaseImport();
                     }
                 })
                 .subscribe(new Consumer<Boolean>() {

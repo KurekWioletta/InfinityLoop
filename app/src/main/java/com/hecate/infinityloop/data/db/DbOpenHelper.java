@@ -63,7 +63,7 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
         }
     }
 
-    public void importDatabase(Database db) throws IOException {
+    private void importDatabase(Database db) throws IOException {
         String backupFile = DB_NAME.split("\\.")[0] + ".sql";
 
         try (BufferedReader br = new BufferedReader( new InputStreamReader(mContext.getAssets().open(backupFile)))) {

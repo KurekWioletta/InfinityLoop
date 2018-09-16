@@ -10,13 +10,7 @@ import io.reactivex.Observable;
 
 public interface DbHelper {
 
-    void createNewSession();
-
-    boolean isImportFinished();
-
     Observable<Boolean> createDatabase();
-
-    Observable<Boolean> finishDatabaseImport();
 
     List<Difficulty> getDifficultyList();
 

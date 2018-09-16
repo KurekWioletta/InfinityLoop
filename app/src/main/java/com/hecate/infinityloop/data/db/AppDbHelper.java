@@ -35,40 +35,15 @@ public class AppDbHelper implements DbHelper{
 
     //db create and import
     @Override
-    public void createNewSession() {
-        mDaoSession = new DaoMaster(mDbOpenHelper.getWritableDb()).newSession();
-    }
-
-    @Override
     public Observable<Boolean> createDatabase() {
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
             public Boolean call() throws Exception {
-                createNewSession();
+                mDaoSession = new DaoMaster(mDbOpenHelper.getWritableDb()).newSession();
                 return true;
             }
         });
     }
-
-    @Override
-    public Observable<Boolean> finishDatabaseImport() {
-        return Observable.fromCallable(new Callable<Boolean>() {
-            @Override
-            public Boolean call() {
-                try {
-                    mDbOpenHelper.importDatabase(mDbOpenHelper.getWritableDb());
-                    return true;
-                } catch (IOException e) {
-                    return false;
-                }
-            }
-        });
-    }
-    @Override
-    public boolean isImportFinished() {
-        return mDaoSession.getGameVarsDao().loadByRowId(1) != null && mDaoSession.getGameVarsDao().loadByRowId(1).getIsImportFinished();
-    }
-
 
     //database queries
     @Override

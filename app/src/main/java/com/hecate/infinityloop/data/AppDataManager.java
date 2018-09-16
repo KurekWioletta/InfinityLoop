@@ -36,23 +36,8 @@ public class AppDataManager implements DataManager {
 
     //DbHelper
     @Override
-    public void createNewSession() {
-        mDbHelper.createNewSession();
-    }
-
-    @Override
     public Observable<Boolean> createDatabase() {
         return mDbHelper.createDatabase();
-    }
-
-    @Override
-    public Observable<Boolean>  finishDatabaseImport() {
-        return mDbHelper.finishDatabaseImport();
-    }
-
-    @Override
-    public boolean isImportFinished() {
-        return mDbHelper.isImportFinished();
     }
 
     @Override
