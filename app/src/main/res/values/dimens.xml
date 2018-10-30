@@ -8,6 +8,7 @@
 
     <!-- spacing between two views -->
     <dimen name="spacing_extra_small">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_normal">16dp</dimen>
 
     <!-- shape widths -->
@@ -19,11 +20,12 @@
 
 
     <!-- custom dimens -->
-    <dimen name="splash_progress_width">180dp</dimen>
-
+    <dimen name="splash_progress_bar_width">174dp</dimen>
+    <dimen name="splash_progress_bar_height">30dp</dimen>
+    <dimen name="splash_progress_bar_bg_height">6dp</dimen>
+    <dimen name="splash_progress_bar_bg_margin">12dp</dimen>
     <dimen name="select_level_text_difficulty_width">180dp</dimen>
-
-    <dimen name="view_pager_padding">70dp</dimen>
-    <dimen name="view_pager_page_margin">4dp</dimen>
+    <dimen name="select_level_view_pager_padding">70dp</dimen>
+    <dimen name="select_level_view_pager_page_margin">4dp</dimen>
 
 </resources>

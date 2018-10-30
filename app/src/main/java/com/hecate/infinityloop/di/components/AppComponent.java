@@ -21,7 +21,5 @@ public interface AppComponent extends AndroidInjector<App> {
     @ApplicationContext
     Context context();
 
-    Application application();
-
     DataManager getDataManager();
 }

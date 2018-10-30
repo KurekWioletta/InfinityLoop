@@ -17,7 +17,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bg_item_lvl" />
+            android:src="@drawable/bg_lvl" />
 
         <TextView
             android:id="@+id/text_lvl_number"

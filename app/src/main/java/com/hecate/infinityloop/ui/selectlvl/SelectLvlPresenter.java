@@ -1,7 +1,9 @@
 package com.hecate.infinityloop.ui.selectlvl;
 
+import com.google.gson.Gson;
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.model.Difficulty;
+import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.ui.base.BasePresenter;
 import com.hecate.infinityloop.utils.rx.SchedulerProvider;
 
@@ -39,6 +41,13 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
 
         getDataManager().setChosenDifficulty(difficulty.getId());
         getDifficultyData(difficulty);
+    }
+
+    @Override
+    public void onLevelClick(Level level) {
+        Gson gson = new Gson();
+        String levelJson = gson.toJson(level);
+        getMvpView().openGameActivity(levelJson);
     }
 
     private void getDifficultyData(Difficulty difficulty){

@@ -1,5 +1,6 @@
 package com.hecate.infinityloop.ui.selectlvl.level;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.CardView;
@@ -10,27 +11,32 @@ import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.data.db.model.Level;
+import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LevelAdapter extends PagerAdapter {
 
     private List<CardView> mViewList;
     private List<Level> mLevelList;
+    private Context mContext;
 
     @BindString(R.string.symbol_hashtag)
     String symbolHashtag;
 
     @BindView(R.id.card_lvl)
-    CardView cardLvl;
+    CardView lvlCardView;
 
     @BindView(R.id.text_lvl_number)
-    TextView textLvlNumber;
+    TextView lvlNumberTextView;
 
     public LevelAdapter() {
         mViewList = new ArrayList<>();
@@ -47,7 +53,8 @@ public class LevelAdapter extends PagerAdapter {
 
         container.addView(view);
 
-        mViewList.set(position, cardLvl);
+        mViewList.set(position, lvlCardView);
+        mContext = container.getContext();
 
         setUp(position);
 
@@ -64,6 +71,11 @@ public class LevelAdapter extends PagerAdapter {
         return view == object;
     }
 
+    @OnClick(R.id.card_lvl)
+    void onLevelClick(){
+        ((SelectLvlActivity)mContext).onLevelClicked();
+    }
+
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
@@ -75,8 +87,11 @@ public class LevelAdapter extends PagerAdapter {
         mLevelList.add(level);
     }
 
-    private void setUp(int position) {
-        textLvlNumber.setText(String.valueOf(symbolHashtag + (position + 1)));
+    public Level getLevel(int position) {
+        return mLevelList.get(position);
     }
 
+    private void setUp(int position) {
+        lvlNumberTextView.setText(String.valueOf(symbolHashtag + (position + 1)));
+    }
 }

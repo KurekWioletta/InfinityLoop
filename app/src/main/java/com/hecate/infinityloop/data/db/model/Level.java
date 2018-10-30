@@ -2,14 +2,8 @@ package com.hecate.infinityloop.data.db.model;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.OrderBy;
 import org.greenrobot.greendao.annotation.Property;
-import org.greenrobot.greendao.annotation.ToMany;
-import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.DaoException;
-
-import java.util.List;
 
 @Entity(nameInDb = "level")
 public class Level {
@@ -23,14 +17,19 @@ public class Level {
     @Property(nameInDb = "number")
     private int number;
 
+    @Property(nameInDb = "dimension")
+    private String dimension;
+
     @Property(nameInDb = "elements")
     private String elements;
 
-    @Generated(hash = 1267936284)
-    public Level(Long id, Long difficultyId, int number, String elements) {
+    @Generated(hash = 1619521941)
+    public Level(Long id, Long difficultyId, int number, String dimension,
+            String elements) {
         this.id = id;
         this.difficultyId = difficultyId;
         this.number = number;
+        this.dimension = dimension;
         this.elements = elements;
     }
 
@@ -68,6 +67,14 @@ public class Level {
 
     public void setElements(String elements) {
         this.elements = elements;
+    }
+
+    public String getDimension() {
+        return this.dimension;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 
 }

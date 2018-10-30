@@ -4,7 +4,7 @@ import com.hecate.infinityloop.di.PerActivity;
 import com.hecate.infinityloop.ui.base.MvpPresenter;
 import com.hecate.infinityloop.ui.base.MvpView;
 
-public interface MainContract extends MvpView {
+public interface MainContract{
 
     interface View extends MvpView {
         void openSelectLevelActivity();

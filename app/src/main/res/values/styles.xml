@@ -16,10 +16,9 @@
     </style>
 
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:windowBackground">@drawable/bg_activity_splash</item>
+        <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
-    <!-- custom themes -->
 
     <!-- general -->
     <style name="OuterGlow" >
@@ -48,7 +47,15 @@
     </style>
 
 
-    <!-- menu_activity -->
+    <!-- splash screen -->
+    <style name="LinearProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <!--<item name="android:indeterminateDrawable">@drawable/dw_splash_progress_bar</item>-->
+        <item name="colorAccent">@color/white</item>
+        <item name="android:progressBackgroundTint">@color/white</item>
+    </style>
+
+
+    <!-- menu -->
     <style name="MenuText" parent="Text.Normal">
         <item name="android:layout_marginBottom">@dimen/spacing_extra_small</item>
         <item name="android:layout_marginTop">@dimen/spacing_extra_small</item>

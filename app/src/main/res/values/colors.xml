@@ -11,6 +11,8 @@
 
     <!-- Transparent -->
     <color name="transparent">#00ffffff</color>
+    <color name="transparent_white_0.2">#32ffffff</color>
+    <color name="transparent_white_0.4">#64ffffff</color>
     <color name="transparent_white_0.7">#b8ffffff</color>
 
     <!-- Shadows -->

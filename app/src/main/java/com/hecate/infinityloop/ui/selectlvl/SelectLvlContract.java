@@ -15,6 +15,8 @@ public interface SelectLvlContract {
         void refreshTextViewProgress(int doneLevels, int allLevels);
 
         void refreshViewPager(List<Level> levelList);
+
+        void openGameActivity(String levelJson);
     }
 
     @PerActivity
@@ -24,6 +26,8 @@ public interface SelectLvlContract {
         void onPreviousDifficultyClick();
 
         void onNextDifficultyClick();
+
+        void onLevelClick(Level level);
     }
 
 }

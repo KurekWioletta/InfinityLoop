@@ -22,16 +22,12 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     @Inject
     DataManager mDataManager;
 
-    @BindView(R.id.image_splash_logo)
-    ImageView mImageViewLogo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
-        getActivityComponent().inject(this);
 
+        getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
