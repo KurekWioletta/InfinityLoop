@@ -4,9 +4,8 @@ package com.hecate.infinityloop.data.db;
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
 import com.hecate.infinityloop.data.db.model.Difficulty;
-import com.hecate.infinityloop.data.db.model.DoneLevel;
-import com.hecate.infinityloop.data.db.model.DoneLevelDao;
-import com.hecate.infinityloop.data.db.model.GameVars;
+import com.hecate.infinityloop.data.db.model.FinishedLevel;
+import com.hecate.infinityloop.data.db.model.FinishedLevelDao;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.db.model.LevelDao;
 
@@ -57,9 +56,9 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public List<DoneLevel> getDoneLevelList(Long difficultyId) {
-        QueryBuilder<DoneLevel> qb = mDaoSession.getDoneLevelDao().queryBuilder();
-        Join level = qb.join(DoneLevelDao.Properties.LevelId, Level.class);
+    public List<FinishedLevel> getFinishedLevelList(Long difficultyId) {
+        QueryBuilder<FinishedLevel> qb = mDaoSession.getFinishedLevelDao().queryBuilder();
+        Join level = qb.join(FinishedLevelDao.Properties.LevelId, Level.class);
         level.where(LevelDao.Properties.DifficultyId.eq(difficultyId));
         return qb.list();
     }

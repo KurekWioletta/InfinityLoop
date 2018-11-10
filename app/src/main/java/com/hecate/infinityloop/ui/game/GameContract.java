@@ -1,5 +1,7 @@
 package com.hecate.infinityloop.ui.game;
 
+import android.content.Context;
+
 import com.hecate.infinityloop.di.PerActivity;
 import com.hecate.infinityloop.ui.base.MvpPresenter;
 import com.hecate.infinityloop.ui.base.MvpView;
@@ -7,6 +9,8 @@ import com.hecate.infinityloop.ui.base.MvpView;
 public class GameContract{
 
     interface View extends MvpView {
+        String getIntentExtras();
+
         void setUpGameboard();
 
         void setGameboardPositionX(float posX);

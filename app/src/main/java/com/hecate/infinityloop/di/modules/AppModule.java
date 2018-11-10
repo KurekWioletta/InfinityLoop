@@ -12,7 +12,7 @@ import com.hecate.infinityloop.data.status.AppStatusHelper;
 import com.hecate.infinityloop.data.status.StatusHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
-import com.hecate.infinityloop.utils.AppConstants;
+import com.hecate.infinityloop.utils.AppConst;
 
 import javax.inject.Singleton;
 
@@ -43,7 +43,7 @@ public class AppModule {
     @Provides
     @DatabaseInfo
     String provideDatabaseName() {
-        return AppConstants.DB_NAME;
+        return AppConst.DB_NAME;
     }
 
     @Provides

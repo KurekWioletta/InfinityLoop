@@ -6,8 +6,9 @@ import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.DaoException;
 
-@Entity(nameInDb = "done_level")
-public class DoneLevel {
+
+@Entity(nameInDb = "finished_level")
+public class FinishedLevel {
 
     @Property(nameInDb = "level_id")
     private Long levelId;
@@ -23,17 +24,17 @@ public class DoneLevel {
     private transient DaoSession daoSession;
 
     /** Used for active entity operations. */
-    @Generated(hash = 1616130889)
-    private transient DoneLevelDao myDao;
+    @Generated(hash = 1731230996)
+    private transient FinishedLevelDao myDao;
 
-    @Generated(hash = 1922854564)
-    public DoneLevel(Long levelId, String score) {
+    @Generated(hash = 651750936)
+    public FinishedLevel(Long levelId, String score) {
         this.levelId = levelId;
         this.score = score;
     }
 
-    @Generated(hash = 971814059)
-    public DoneLevel() {
+    @Generated(hash = 991804329)
+    public FinishedLevel() {
     }
 
     public Long getLevelId() {
@@ -121,10 +122,10 @@ public class DoneLevel {
     }
 
     /** called by internal mechanisms, do not call yourself. */
-    @Generated(hash = 1794164514)
+    @Generated(hash = 1830119684)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
-        myDao = daoSession != null ? daoSession.getDoneLevelDao() : null;
+        myDao = daoSession != null ? daoSession.getFinishedLevelDao() : null;
     }
 
 }

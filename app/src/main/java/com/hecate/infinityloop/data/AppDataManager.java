@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.data.db.model.Difficulty;
-import com.hecate.infinityloop.data.db.model.DoneLevel;
+import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.data.status.StatusHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
@@ -51,8 +51,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public List<DoneLevel> getDoneLevelList(Long difficultyId) {
-        return mDbHelper.getDoneLevelList(difficultyId);
+    public List<FinishedLevel> getFinishedLevelList(Long difficultyId) {
+        return mDbHelper.getFinishedLevelList(difficultyId);
     }
 
     @Override

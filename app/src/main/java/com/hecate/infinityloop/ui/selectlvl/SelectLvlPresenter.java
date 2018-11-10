@@ -55,7 +55,7 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
                 difficulty.getName());
 
         getMvpView().refreshTextViewProgress(
-                getDataManager().getDoneLevelList(difficulty.getId()).size(),
+                getDataManager().getFinishedLevelList(difficulty.getId()).size(),
                 getDataManager().getLevelList(difficulty.getId()).size());
 
         getMvpView().refreshViewPager(

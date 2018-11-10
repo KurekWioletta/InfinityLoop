@@ -1,7 +1,7 @@
 package com.hecate.infinityloop.data.db;
 
 import com.hecate.infinityloop.data.db.model.Difficulty;
-import com.hecate.infinityloop.data.db.model.DoneLevel;
+import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public interface DbHelper {
 
     List<Level> getLevelList(Long difficultyId);
 
-    List<DoneLevel> getDoneLevelList(Long difficultyId);
+    List<FinishedLevel> getFinishedLevelList(Long difficultyId);
 
     Difficulty getCurrentDifficulty();
 

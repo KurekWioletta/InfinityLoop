@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -12,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
+import com.hecate.infinityloop.utils.AppConst;
 import com.hecate.infinityloop.utils.ScreenUtils;
 
 import javax.inject.Inject;
@@ -64,13 +64,16 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     @Override
     public void setGameboardPositionY(float posY) {
         gameboardLayout.setY(posY);
-        Log.e("qwerqw", String.valueOf(posY));
         gameboardLayout.invalidate();
     }
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, GameActivity.class);
         return intent;
+    }
+
+    public String getIntentExtras() {
+        return getIntent().getStringExtra(AppConst.EXTRAS_SELECT_LEVEL_TAG);
     }
 
     @SuppressLint("ClickableViewAccessibility")

@@ -1,7 +1,5 @@
 package com.hecate.infinityloop.ui.game;
 
-import android.util.Log;
-
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.ui.base.BasePresenter;
 import com.hecate.infinityloop.utils.rx.SchedulerProvider;
@@ -19,7 +17,7 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
 
     @Override
     public void onViewInitialized() {
-
+        String levelJson = getMvpView().getIntentExtras();
     }
 
     @Override

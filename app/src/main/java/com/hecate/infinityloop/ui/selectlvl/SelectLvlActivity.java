@@ -12,7 +12,8 @@ import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.GameActivity;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapterTransformer;
-import com.hecate.infinityloop.utils.ViewConstants;
+import com.hecate.infinityloop.utils.AppConst;
+import com.hecate.infinityloop.utils.ViewConst;
 import com.hecate.infinityloop.utils.ScreenUtils;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
     @Override
     public void openGameActivity(String levelJson) {
-        startActivity(GameActivity.getStartIntent(this).putExtra("level", levelJson));
+        startActivity(GameActivity.getStartIntent(this).putExtra(AppConst.EXTRAS_SELECT_LEVEL_TAG, levelJson));
     }
 
     @OnClick(R.id.image_select_lvl_previous_difficulty)
@@ -100,7 +101,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
     private void setUp() {
         float screenWidth = ScreenUtils.getScreenWidth(this);
-        float scale = ViewConstants.VIEW_PAGER_SMALLER_SCALE;
+        float scale = ViewConst.VIEW_PAGER_SMALLER_SCALE;
 
         int partialWidth = (int) getResources().getDimension(R.dimen.select_level_view_pager_padding);
         int pageMargin = (int) getResources().getDimension(R.dimen.select_level_view_pager_page_margin);

@@ -1,6 +1,6 @@
 package com.hecate.infinityloop.utils;
 
-public class ViewConstants {
+public class ViewConst {
 
     // This class is not publicly instantiable
 
