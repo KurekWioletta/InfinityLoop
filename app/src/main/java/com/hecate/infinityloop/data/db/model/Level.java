@@ -17,19 +17,19 @@ public class Level {
     @Property(nameInDb = "number")
     private int number;
 
-    @Property(nameInDb = "dimension")
-    private String dimension;
+    @Property(nameInDb = "dimensions")
+    private String dimensions;
 
     @Property(nameInDb = "elements")
     private String elements;
 
-    @Generated(hash = 1619521941)
-    public Level(Long id, Long difficultyId, int number, String dimension,
+    @Generated(hash = 689231465)
+    public Level(Long id, Long difficultyId, int number, String dimensions,
             String elements) {
         this.id = id;
         this.difficultyId = difficultyId;
         this.number = number;
-        this.dimension = dimension;
+        this.dimensions = dimensions;
         this.elements = elements;
     }
 
@@ -61,20 +61,20 @@ public class Level {
         this.number = number;
     }
 
+    public String getDimensions() {
+        return this.dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
     public String getElements() {
         return this.elements;
     }
 
     public void setElements(String elements) {
         this.elements = elements;
-    }
-
-    public String getDimension() {
-        return this.dimension;
-    }
-
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
     }
 
 }

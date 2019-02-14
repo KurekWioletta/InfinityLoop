@@ -16,7 +16,7 @@ public interface SelectLvlContract {
 
         void refreshViewPager(List<Level> levelList);
 
-        void openGameActivity(String levelJson);
+        void openGameActivity();
     }
 
     @PerActivity

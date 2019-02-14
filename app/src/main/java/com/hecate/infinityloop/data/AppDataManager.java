@@ -6,7 +6,7 @@ import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
-import com.hecate.infinityloop.data.status.StatusHelper;
+import com.hecate.infinityloop.data.prefs.PreferencesHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
 
@@ -23,13 +23,13 @@ public class AppDataManager implements DataManager {
 
     private final Context mContext;
     private final DbHelper mDbHelper;
-    private final StatusHelper mStatusHelper;
+    private final PreferencesHelper mPreferencesHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StatusHelper statusHelper, @DatabaseInfo String dbName) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, PreferencesHelper preferencesHelper, @DatabaseInfo String dbName) {
         mContext = context;
         mDbHelper = dbHelper;
-        mStatusHelper = statusHelper;
+        mPreferencesHelper = preferencesHelper;
 
         DB_NAME = dbName;
     }
@@ -56,8 +56,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Difficulty getCurrentDifficulty() {
-        return mDbHelper.getCurrentDifficulty();
+    public Difficulty getDifficulty() {
+        return mDbHelper.getDifficulty();
     }
 
     @Override
@@ -76,17 +76,41 @@ public class AppDataManager implements DataManager {
     }
 
 
-    //StatusHelper
+    //PreferencesHelper
     @Override
-    public long getChosenDifficulty() {
-        return mStatusHelper.getChosenDifficulty();
+    public long getCurrentDifficultyId() {
+        return mPreferencesHelper.getCurrentDifficultyId();
     }
 
     @Override
-    public void setChosenDifficulty(long difficultyId) {
-        mStatusHelper.setChosenDifficulty(difficultyId);
+    public void setCurrentDifficultyId(long difficultyId) {
+        mPreferencesHelper.setCurrentDifficultyId(difficultyId);
     }
 
+    @Override
+    public long getCurrentLevelId() {
+        return mPreferencesHelper.getCurrentLevelId();
+    }
+
+    @Override
+    public void setCurrentLevelId(long levelId) {
+        mPreferencesHelper.setCurrentLevelId(levelId);
+    }
+
+    @Override
+    public String getCurrentLevelElements() {
+        return mPreferencesHelper.getCurrentLevelElements();
+    }
+
+    @Override
+    public String getCurrentLevelDimensions() {
+        return mPreferencesHelper.getCurrentLevelDimensions();
+    }
+
+    @Override
+    public void setCurrentLevelData(String elements, String dimensions) {
+        mPreferencesHelper.setCurrentLevelData(elements, dimensions);
+    }
 
     //DataManager
     @Override

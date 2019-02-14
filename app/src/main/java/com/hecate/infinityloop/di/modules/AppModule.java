@@ -8,8 +8,8 @@ import com.hecate.infinityloop.data.AppDataManager;
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.AppDbHelper;
 import com.hecate.infinityloop.data.db.DbHelper;
-import com.hecate.infinityloop.data.status.AppStatusHelper;
-import com.hecate.infinityloop.data.status.StatusHelper;
+import com.hecate.infinityloop.data.prefs.AppPreferencesHelper;
+import com.hecate.infinityloop.data.prefs.PreferencesHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
 import com.hecate.infinityloop.utils.AppConst;
@@ -60,8 +60,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    StatusHelper provideStatusHelper(AppStatusHelper appStatusHelper) {
-        return appStatusHelper;
+    PreferencesHelper provideStatusHelper(AppPreferencesHelper appPreferencesHelper) {
+        return appPreferencesHelper;
     }
 
     @Provides

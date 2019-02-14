@@ -6,5 +6,5 @@ public class AppConst {
 
     public static final String DB_NAME = "infinityloop.db";
 
-    public static final String EXTRAS_SELECT_LEVEL_TAG = "level";
+    public static final String EXTRAS_SELECT_LEVEL_TAG = "LEVEL_DATA";
 }

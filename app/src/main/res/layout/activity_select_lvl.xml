@@ -70,14 +70,39 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_select_lvl_progress"
-        style="@style/Text.Small"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pager_select_lvl"
-        app:layout_constraintVertical_bias="0.575"/>
+        app:layout_constraintVertical_bias="0.575">
+
+        <TextView
+            android:id="@+id/text_select_lvl_progress_left"
+            style="@style/Text.Small"
+            android:layout_width="@dimen/select_level_progress_left_width"
+            android:layout_height="wrap_content"
+            android:gravity="end" />
+
+        <TextView
+            style="@style/Text.Small"
+            android:layout_width="@dimen/select_level_progress_middle_width"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/symbol_slash" />
+
+        <TextView
+            android:id="@+id/text_select_lvl_progress_right"
+            style="@style/Text.Small"
+            android:layout_width="@dimen/select_level_progress_right_width"
+            android:layout_height="wrap_content"
+            android:gravity="start" />
+
+    </LinearLayout>
+
+
+
 
 </android.support.constraint.ConstraintLayout>

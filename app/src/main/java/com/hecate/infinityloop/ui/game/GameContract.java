@@ -9,9 +9,7 @@ import com.hecate.infinityloop.ui.base.MvpView;
 public class GameContract{
 
     interface View extends MvpView {
-        String getIntentExtras();
-
-        void setUpGameboard();
+        void setUpGameboard(int dimX, int dimY);
 
         void setGameboardPositionX(float posX);
 
@@ -22,7 +20,7 @@ public class GameContract{
     interface Presenter<V extends GameContract.View> extends MvpPresenter<V> {
         void onViewInitialized();
 
-        void onGameboardTouch(int width, float screenWidth, float posX, int height, float screenHeight, float posY);
+        void onGameboardMove(int width, float screenWidth, float posX, int height, float screenHeight, float posY);
     }
 
 }

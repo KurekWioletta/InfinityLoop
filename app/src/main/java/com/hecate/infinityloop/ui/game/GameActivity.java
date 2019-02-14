@@ -51,7 +51,8 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     }
 
     @Override
-    public void setUpGameboard() {
+    public void setUpGameboard(int dimX, int dimY) {
+
 
     }
 
@@ -72,10 +73,6 @@ public class GameActivity extends BaseActivity implements GameContract.View {
         return intent;
     }
 
-    public String getIntentExtras() {
-        return getIntent().getStringExtra(AppConst.EXTRAS_SELECT_LEVEL_TAG);
-    }
-
     @SuppressLint("ClickableViewAccessibility")
     private void setUp() {
         final float[] posX = {0};
@@ -94,7 +91,8 @@ public class GameActivity extends BaseActivity implements GameContract.View {
                             return true;
                         }
                         case MotionEvent.ACTION_MOVE: {
-                            mPresenter.onGameboardTouch(gameboardLayout.getWidth(), screenWidth, event.getRawX() + posX[0], gameboardLayout.getHeight(), screenHeight, event.getRawY() + posY[0]);
+                            mPresenter.onGameboardMove(gameboardLayout.getWidth(), screenWidth,
+                                    event.getRawX() + posX[0], gameboardLayout.getHeight(), screenHeight, event.getRawY() + posY[0]);
                             return true;
                         }
                         case MotionEvent.ACTION_UP:

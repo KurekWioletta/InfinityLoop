@@ -3,6 +3,7 @@
 
     <!-- custom strings -->
     <string name="symbol_hashtag">#</string>
+    <string name="symbol_slash">/</string>
 
     <!-- main -->
     <string name="menu_option1">play</string>

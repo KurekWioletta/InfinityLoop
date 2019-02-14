@@ -68,9 +68,8 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
 
         try (BufferedReader br = new BufferedReader( new InputStreamReader(mContext.getAssets().open(backupFile)))) {
             for(String line; (line = br.readLine()) != null; ) {
+                Log.e("aaa", line);
                 db.execSQL(line);
-                for(int i = 0; i < 100000; i++)
-                    Log.e("aaa", "aaa");
             }
             Log.e("DDDDD", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         } catch (IOException e){

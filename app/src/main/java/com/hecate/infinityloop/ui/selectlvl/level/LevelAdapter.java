@@ -3,6 +3,7 @@ package com.hecate.infinityloop.ui.selectlvl.level;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,6 @@ import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -45,7 +44,7 @@ public class LevelAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.item_lvl, container, false);
 
@@ -62,8 +61,8 @@ public class LevelAdapter extends PagerAdapter {
     }
 
     @Override
-    public int getCount() {
-        return mViewList.size();
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView(mViewList.get(position));
     }
 
     @Override
@@ -71,15 +70,21 @@ public class LevelAdapter extends PagerAdapter {
         return view == object;
     }
 
+    @Override
+    public int getCount() {
+        return mViewList.size();
+    }
+
     @OnClick(R.id.card_lvl)
     void onLevelClick(){
         ((SelectLvlActivity)mContext).onLevelClicked();
     }
 
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
-        mViewList.set(position, null);
+    public void clear(ViewPager pager) {
+        pager.setAdapter (null);
+        mViewList.clear();
+        mLevelList.clear();
+        pager.setAdapter (this);
     }
 
     public void addItem(Level level) {

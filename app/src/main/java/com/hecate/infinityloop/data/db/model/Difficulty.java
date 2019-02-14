@@ -127,5 +127,5 @@ public class Difficulty {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getDifficultyDao() : null;
     }
-    
+
 }

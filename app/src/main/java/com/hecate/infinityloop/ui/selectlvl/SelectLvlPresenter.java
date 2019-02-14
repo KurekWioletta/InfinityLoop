@@ -1,6 +1,5 @@
 package com.hecate.infinityloop.ui.selectlvl;
 
-import com.google.gson.Gson;
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.Level;
@@ -20,34 +19,34 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
 
     @Override
     public void onViewInitialized() {
-        Difficulty difficulty = getDataManager().getCurrentDifficulty();
-        getDataManager().setChosenDifficulty(difficulty.getId());
+        Difficulty difficulty = getDataManager().getDifficulty();
         getDifficultyData(difficulty);
     }
 
     @Override
     public void onPreviousDifficultyClick() {
         Difficulty difficulty = getDataManager().getPreviousDifficulty(
-                getDataManager().getChosenDifficulty());
+                getDataManager().getCurrentDifficultyId());
 
-        getDataManager().setChosenDifficulty(difficulty.getId());
+        getDataManager().setCurrentDifficultyId(difficulty.getId());
         getDifficultyData(difficulty);
     }
 
     @Override
     public void onNextDifficultyClick() {
         Difficulty difficulty = getDataManager().getNextDifficulty(
-                getDataManager().getChosenDifficulty());
+                getDataManager().getCurrentDifficultyId());
 
-        getDataManager().setChosenDifficulty(difficulty.getId());
+        getDataManager().setCurrentDifficultyId(difficulty.getId());
         getDifficultyData(difficulty);
     }
 
     @Override
     public void onLevelClick(Level level) {
-        Gson gson = new Gson();
-        String levelJson = gson.toJson(level);
-        getMvpView().openGameActivity(levelJson);
+        getDataManager().setCurrentLevelId(level.getId());
+        getDataManager().setCurrentLevelData(level.getElements(), level.getDimensions());
+
+        getMvpView().openGameActivity();
     }
 
     private void getDifficultyData(Difficulty difficulty){

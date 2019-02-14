@@ -12,7 +12,7 @@ public class GameVars {
     private Long id;
 
     @Property(nameInDb = "cur_difficulty_id")
-    private long curDifficultyId;
+    private long currentDifficultyId;
 
     @Property(nameInDb = "next_level_id")
     private long nextLevelId;
@@ -20,11 +20,11 @@ public class GameVars {
     @Property(nameInDb = "is_import_finished")
     private boolean isImportFinished;
 
-    @Generated(hash = 1525815661)
-    public GameVars(Long id, long curDifficultyId, long nextLevelId,
+    @Generated(hash = 187630310)
+    public GameVars(Long id, long currentDifficultyId, long nextLevelId,
             boolean isImportFinished) {
         this.id = id;
-        this.curDifficultyId = curDifficultyId;
+        this.currentDifficultyId = currentDifficultyId;
         this.nextLevelId = nextLevelId;
         this.isImportFinished = isImportFinished;
     }
@@ -41,12 +41,12 @@ public class GameVars {
         this.id = id;
     }
 
-    public long getCurDifficultyId() {
-        return this.curDifficultyId;
+    public long getCurrentDifficultyId() {
+        return this.currentDifficultyId;
     }
 
-    public void setCurDifficultyId(long curDifficultyId) {
-        this.curDifficultyId = curDifficultyId;
+    public void setCurrentDifficultyId(long currentDifficultyId) {
+        this.currentDifficultyId = currentDifficultyId;
     }
 
     public long getNextLevelId() {

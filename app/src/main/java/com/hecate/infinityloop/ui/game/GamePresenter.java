@@ -17,11 +17,14 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
 
     @Override
     public void onViewInitialized() {
-        String levelJson = getMvpView().getIntentExtras();
+        int dimX = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[0]);
+        int dimY = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[1]);
+
+        getMvpView().setUpGameboard(dimX, dimY);
     }
 
     @Override
-    public void onGameboardTouch(int width, float screenWidth, float posX, int height, float screenHeight, float posY) {
+    public void onGameboardMove(int width, float screenWidth, float posX, int height, float screenHeight, float posY) {
         if (width > screenWidth) {
             if (posX > 0) {
                 posX = 0;

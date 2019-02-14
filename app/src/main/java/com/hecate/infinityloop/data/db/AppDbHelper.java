@@ -12,7 +12,6 @@ import com.hecate.infinityloop.data.db.model.LevelDao;
 import org.greenrobot.greendao.query.Join;
 import org.greenrobot.greendao.query.QueryBuilder;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -64,9 +63,9 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public Difficulty getCurrentDifficulty() {
+    public Difficulty getDifficulty() {
         return  mDaoSession.getDifficultyDao().load(
-                mDaoSession.getGameVarsDao().loadByRowId(1).getCurDifficultyId());
+                mDaoSession.getGameVarsDao().loadByRowId(1).getCurrentDifficultyId());
     }
 
     @Override

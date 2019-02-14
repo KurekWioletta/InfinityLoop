@@ -38,8 +38,11 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     @BindView(R.id.text_select_lvl_difficulty)
     TextView difficultyTextView;
 
-    @BindView(R.id.text_select_lvl_progress)
-    TextView progressTextView;
+    @BindView(R.id.text_select_lvl_progress_left)
+    TextView progressLeftTextView;
+
+    @BindView(R.id.text_select_lvl_progress_right)
+    TextView progressRightTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,6 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
-
         setUp();
 
         mPresenter.onViewInitialized();
@@ -63,20 +65,25 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
 
     @Override
     public void refreshTextViewProgress(int doneLevels, int allLevels) {
-        progressTextView.setText(doneLevels + "/" + allLevels);
+        progressLeftTextView.setText(String.valueOf(doneLevels));
+        progressRightTextView.setText(String.valueOf(allLevels));
     }
 
     @Override
     public void refreshViewPager(List<Level> levelList) {
+        mLevelAdapter.clear(viewPager);
+
         for (Level level : levelList) {
             mLevelAdapter.addItem(level);
         }
         mLevelAdapter.notifyDataSetChanged();
+
+        viewPager.setCurrentItem(0);
     }
 
     @Override
-    public void openGameActivity(String levelJson) {
-        startActivity(GameActivity.getStartIntent(this).putExtra(AppConst.EXTRAS_SELECT_LEVEL_TAG, levelJson));
+    public void openGameActivity() {
+        startActivity(GameActivity.getStartIntent(this));
     }
 
     @OnClick(R.id.image_select_lvl_previous_difficulty)
@@ -89,14 +96,14 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         mPresenter.onNextDifficultyClick();
     }
 
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, SelectLvlActivity.class);
-        return intent;
-    }
-
     public void onLevelClicked() {
         mPresenter.onLevelClick(
                 mLevelAdapter.getLevel(viewPager.getCurrentItem()));
+    }
+
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, SelectLvlActivity.class);
+        return intent;
     }
 
     private void setUp() {
