@@ -11,13 +11,6 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class GamePresenter<V extends GameContract.View> extends BasePresenter<V> implements GameContract.Presenter<V>  {
 
-
-    int logos[] = {R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1,
-            R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1,
-            R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1,
-            R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1,
-            R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1, R.drawable.ic_element_1,};
-
     @Inject
     public GamePresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
@@ -28,7 +21,35 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
         int dimX = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[0]);
         int dimY = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[1]);
 
-        getMvpView().setUpGameboard(dimX, dimY,logos);
+        generateGameMap(dimX, dimY);
+        generateElementsArray(); //setElementsArray
+
+        int[] gameboardElementsArray = createGameboardElementsArray(); //getElementsArray
+
+        getMvpView().setUpGameboard(dimX, dimY, gameboardElementsArray);
     }
 
+    private void generateGameMap(int dimX, int dimY){
+        int[][] gameStateArray = new int[dimX][dimY];
+        for (int i = 0; i < dimX; i++){
+            for (int j = 0; j < dimY; j++){
+                //todo
+            }
+        }
+        getDataManager().setGameStateArray(gameStateArray);
+    }
+
+    private void generateElementsArray(){
+        //
+    }
+
+    private int[] createGameboardElementsArray(){
+        int[] gameElementsArray = new int[dimX * dimY];
+
+        for (int i = 0; i < dimX; i++)
+            gameElements[i] = R.drawable.ic_element_1;
+
+        return gameElements;
+    }
 }
+

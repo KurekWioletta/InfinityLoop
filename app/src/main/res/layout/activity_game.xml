@@ -8,7 +8,7 @@
     tools:context=".ui.game.GameActivity">
 
     <GridView
-        android:id="@+id/grid_gameboard"
+        android:id="@+id/grid_game_gameboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnWidth="@dimen/game_element_size"

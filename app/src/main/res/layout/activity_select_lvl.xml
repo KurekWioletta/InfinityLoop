@@ -82,13 +82,13 @@
         <TextView
             android:id="@+id/text_select_lvl_progress_left"
             style="@style/Text.Small"
-            android:layout_width="@dimen/select_level_progress_left_width"
+            android:layout_width="@dimen/select_level_text_progress_left_width"
             android:layout_height="wrap_content"
             android:gravity="end" />
 
         <TextView
             style="@style/Text.Small"
-            android:layout_width="@dimen/select_level_progress_middle_width"
+            android:layout_width="@dimen/select_level_text_progress_middle_width"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/symbol_slash" />
@@ -96,7 +96,7 @@
         <TextView
             android:id="@+id/text_select_lvl_progress_right"
             style="@style/Text.Small"
-            android:layout_width="@dimen/select_level_progress_right_width"
+            android:layout_width="@dimen/select_level_text_progress_right_width"
             android:layout_height="wrap_content"
             android:gravity="start" />
 

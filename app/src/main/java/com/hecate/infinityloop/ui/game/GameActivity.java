@@ -24,7 +24,7 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     @Inject
     GamePresenter<GameContract.View> mPresenter;
 
-    @BindView(R.id.grid_gameboard)
+    @BindView(R.id.grid_game_gameboard)
     GridView gameboardGridView;
 
     @Override
@@ -40,11 +40,11 @@ public class GameActivity extends BaseActivity implements GameContract.View {
         mPresenter.onViewInitialized();
     }
 
-    @Override
-    public void setUpGameboard(int dimX, int dimY, int[] elements) {
+-+-    @Override
+    public void setUpGameboard(int dimX, int dimY, int[] elementsArray) {
         int elementSize = DimensionsUtils.getElementSize(this);
 
-        mElementAdapter = new ElementAdapter(this, elements);
+        mElementAdapter = new ElementAdapter(this, elementsArray);
 
         gameboardGridView.setAdapter(mElementAdapter);
         gameboardGridView.getLayoutParams().width = dimX * elementSize;

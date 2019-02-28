@@ -74,6 +74,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         for (Level level : levelList) {
             mLevelAdapter.addItem(level);
         }
+
         mLevelAdapter.notifyDataSetChanged();
 
         viewPager.setCurrentItem(0);
@@ -100,8 +101,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, SelectLvlActivity.class);
-        return intent;
+        return new Intent(context, SelectLvlActivity.class);
     }
 
     private void setUp() {

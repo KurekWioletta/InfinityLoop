@@ -1,6 +1,5 @@
 package com.hecate.infinityloop.data.db;
 
-
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.data.db.model.DaoSession;
 import com.hecate.infinityloop.data.db.model.Difficulty;

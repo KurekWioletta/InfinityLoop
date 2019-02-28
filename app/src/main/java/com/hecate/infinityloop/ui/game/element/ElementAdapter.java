@@ -13,20 +13,20 @@ import butterknife.ButterKnife;
 
 public class ElementAdapter extends BaseAdapter {
 
-    private int[] logos;
+    private int[] mElementsArray;
     private Context mContext;
 
-    @BindView(R.id.image_game_element)
-    ImageView gameElementImageView;
+    @BindView(R.id.image_element)
+    ImageView elementImageView;
 
-    public ElementAdapter(Context context, int[] logos) {
+    public ElementAdapter(Context context, int[] elementsArray) {
         mContext = context;
-        this.logos = logos;
+        mElementsArray = elementsArray;
     }
 
     @Override
     public int getCount() {
-        return logos.length;
+        return mElementsArray.length;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ElementAdapter extends BaseAdapter {
 
             ButterKnife.bind(this, view);
 
-            gameElementImageView.setImageResource(logos[position]);
+            elementImageView.setImageResource(mElementsArray[position]);
         }
 
         return  view;
