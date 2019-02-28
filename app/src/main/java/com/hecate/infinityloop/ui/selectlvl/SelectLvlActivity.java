@@ -12,9 +12,8 @@ import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.GameActivity;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapterTransformer;
-import com.hecate.infinityloop.utils.AppConst;
 import com.hecate.infinityloop.utils.ViewConst;
-import com.hecate.infinityloop.utils.ScreenUtils;
+import com.hecate.infinityloop.utils.DimensionsUtils;
 
 import java.util.List;
 
@@ -53,9 +52,8 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
-        setUp();
 
-        mPresenter.onViewInitialized();
+        setUp();
     }
 
     @Override
@@ -107,7 +105,12 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     private void setUp() {
-        float screenWidth = ScreenUtils.getScreenWidth(this);
+        setUpViewPager();
+        mPresenter.onViewInitialized();
+    }
+
+    private void setUpViewPager(){
+        float screenWidth = DimensionsUtils.getScreenWidth(this);
         float scale = ViewConst.VIEW_PAGER_SMALLER_SCALE;
 
         int partialWidth = (int) getResources().getDimension(R.dimen.select_level_view_pager_padding);

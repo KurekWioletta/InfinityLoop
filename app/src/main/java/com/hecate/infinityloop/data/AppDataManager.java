@@ -98,7 +98,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public String getCurrentLevelElements() {
+    public List<String> getCurrentLevelElements() {
         return mPreferencesHelper.getCurrentLevelElements();
     }
 

@@ -1,5 +1,7 @@
 package com.hecate.infinityloop.data.prefs;
 
+import java.util.List;
+
 public interface PreferencesHelper {
 
     long getCurrentDifficultyId();
@@ -10,11 +12,16 @@ public interface PreferencesHelper {
 
     void setCurrentLevelId(long levelId);
 
-    String getCurrentLevelElements();
+    int[][] getGameStateArray();
+
+    void setGameStateArray(int[][] gameStateArray);
+
+    List<String> getCurrentLevelElements();
 
     String getCurrentLevelDimensions();
 
     void setCurrentLevelData(String elements, String dimensions);
+
 
 }
 

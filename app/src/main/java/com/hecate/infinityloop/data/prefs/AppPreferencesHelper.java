@@ -1,13 +1,17 @@
 package com.hecate.infinityloop.data.prefs;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.inject.Inject;
 
 public class AppPreferencesHelper implements PreferencesHelper {
 
     private long mCurrentDifficultyId;
     private long mCurrentLevelId;
-    private String mCurrentLevelElements;
+    private List<String> mCurrentLevelElements;
     private String mCurrentLevelDimensions;
+    private int[][] mGameStateArray;
 
     @Inject
     public AppPreferencesHelper() {
@@ -34,7 +38,17 @@ public class AppPreferencesHelper implements PreferencesHelper {
     }
 
     @Override
-    public String getCurrentLevelElements() {
+    public int[][] getGameStateArray() {
+        return mGameStateArray;
+    }
+
+    @Override
+    public void setGameStateArray(int[][] gameStateArray) {
+        mGameStateArray = gameStateArray;
+    }
+
+    @Override
+    public List<String> getCurrentLevelElements() {
         return mCurrentLevelElements;
     }
 
@@ -45,7 +59,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public void setCurrentLevelData(String elements, String dimensions) {
-        mCurrentLevelElements = elements;
+        mCurrentLevelElements = Arrays.asList(elements.split("\\s*,\\s*"));;
         mCurrentLevelDimensions = dimensions;
     }
 }

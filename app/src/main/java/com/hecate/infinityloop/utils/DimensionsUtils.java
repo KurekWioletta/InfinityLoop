@@ -5,9 +5,9 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
-public class ScreenUtils  {
+import com.hecate.infinityloop.R;
 
-    // This class is not publicly instantiable
+public class DimensionsUtils {
 
     public static float getScreenWidth(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -30,5 +30,9 @@ public class ScreenUtils  {
             return res.getDimensionPixelSize(resId);
         }
         return 0;
+    }
+
+    public static int getElementSize(Context context){
+        return (int) context.getResources().getDimension(R.dimen.game_element_size);
     }
 }

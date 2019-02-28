@@ -32,4 +32,6 @@
     <dimen name="select_level_progress_middle_width">12dp</dimen>
     <dimen name="select_level_progress_right_width">100dp</dimen>
 
+    <dimen name="game_element_size">54dp</dimen>
+
 </resources>

@@ -14,7 +14,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseActivity extends AppCompatActivity implements MvpView {
 
-    private Unbinder mUnBinder;
+    private Unbinder mUnbinder;
     private ActivityComponent mActivityComponent;
 
     @Override
@@ -38,8 +38,8 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView 
 
     @Override
     protected void onDestroy() {
-        if (mUnBinder != null) {
-            mUnBinder.unbind();
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
         }
         super.onDestroy();
     }
@@ -55,7 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements MvpView 
     }
 
     public void setUnBinder(Unbinder unBinder) {
-        mUnBinder = unBinder;
+        mUnbinder = unBinder;
     }
 
 }
