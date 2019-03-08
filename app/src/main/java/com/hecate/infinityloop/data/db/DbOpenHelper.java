@@ -71,7 +71,6 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
                 Log.e("aaa", line);
                 db.execSQL(line);
             }
-            Log.e("DDDDD", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         } catch (IOException e){
             throw e;
         }

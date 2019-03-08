@@ -11,21 +11,20 @@ public class GameVars {
     @Id(autoincrement = true)
     private Long id;
 
-    @Property(nameInDb = "cur_difficulty_id")
-    private long currentDifficultyId;
+    @Property(nameInDb = "next_to_play_difficulty_id")
+    private long nextToPlayDifficultyId; // holds id of difficulty that contains first unfinished level
 
-    @Property(nameInDb = "next_level_id")
-    private long nextLevelId;
+    @Property(nameInDb = "next_to_play_level_id")
+    private long nextToPlayLevelId; // holds id of level that should be played next (all level before this one are finished)
 
     @Property(nameInDb = "is_import_finished")
     private boolean isImportFinished;
 
-    @Generated(hash = 187630310)
-    public GameVars(Long id, long currentDifficultyId, long nextLevelId,
-            boolean isImportFinished) {
+    @Generated(hash = 470473197)
+    public GameVars(Long id, long nextToPlayDifficultyId, long nextToPlayLevelId, boolean isImportFinished) {
         this.id = id;
-        this.currentDifficultyId = currentDifficultyId;
-        this.nextLevelId = nextLevelId;
+        this.nextToPlayDifficultyId = nextToPlayDifficultyId;
+        this.nextToPlayLevelId = nextToPlayLevelId;
         this.isImportFinished = isImportFinished;
     }
 
@@ -41,20 +40,20 @@ public class GameVars {
         this.id = id;
     }
 
-    public long getCurrentDifficultyId() {
-        return this.currentDifficultyId;
+    public long getNextToPlayDifficultyId() {
+        return this.nextToPlayDifficultyId;
     }
 
-    public void setCurrentDifficultyId(long currentDifficultyId) {
-        this.currentDifficultyId = currentDifficultyId;
+    public void setNextToPlayDifficultyId(long nextToPlayDifficultyId) {
+        this.nextToPlayDifficultyId = nextToPlayDifficultyId;
     }
 
-    public long getNextLevelId() {
-        return this.nextLevelId;
+    public long getNextToPlayLevelId() {
+        return this.nextToPlayLevelId;
     }
 
-    public void setNextLevelId(long nextLevelId) {
-        this.nextLevelId = nextLevelId;
+    public void setNextToPlayLevelId(long nextToPlayLevelId) {
+        this.nextToPlayLevelId = nextToPlayLevelId;
     }
 
     public boolean getIsImportFinished() {

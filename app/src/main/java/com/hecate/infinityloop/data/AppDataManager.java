@@ -6,11 +6,11 @@ import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
+import com.hecate.infinityloop.data.game.GameStateHelper;
 import com.hecate.infinityloop.data.prefs.PreferencesHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
 
-import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,12 +24,14 @@ public class AppDataManager implements DataManager {
     private final Context mContext;
     private final DbHelper mDbHelper;
     private final PreferencesHelper mPreferencesHelper;
+    private final GameStateHelper mGameStateHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, PreferencesHelper preferencesHelper, @DatabaseInfo String dbName) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, PreferencesHelper preferencesHelper, GameStateHelper gameStateHelper, @DatabaseInfo String dbName) {
         mContext = context;
         mDbHelper = dbHelper;
         mPreferencesHelper = preferencesHelper;
+        mGameStateHelper = gameStateHelper;
 
         DB_NAME = dbName;
     }
@@ -56,8 +58,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Difficulty getDifficulty() {
-        return mDbHelper.getDifficulty();
+    public Difficulty getNextToPlayDifficulty() {
+        return mDbHelper.getNextToPlayDifficulty();
     }
 
     @Override
@@ -69,12 +71,6 @@ public class AppDataManager implements DataManager {
     public Difficulty getPreviousDifficulty(Long difficultyId) {
         return mDbHelper.getPreviousDifficulty(difficultyId);
     }
-
-    @Override
-    public Level getNextLevel() {
-        return mDbHelper.getNextLevel();
-    }
-
 
     //PreferencesHelper
     @Override
@@ -112,10 +108,14 @@ public class AppDataManager implements DataManager {
         mPreferencesHelper.setCurrentLevelData(elements, dimensions);
     }
 
-    //DataManager
+    //GameStateHelper
     @Override
-    public boolean doesDatabaseExist() {
-        File dbFile = mContext.getDatabasePath(DB_NAME);
-        return dbFile.exists();
+    public int[] getRotationAnglesArray() {
+        return mGameStateHelper.getRotationAnglesArray();
+    }
+
+    @Override
+    public void setRotationAnglesArray(int[] mRotationDegreesArray) {
+        mGameStateHelper.setRotationAnglesArray(mRotationDegreesArray);
     }
 }

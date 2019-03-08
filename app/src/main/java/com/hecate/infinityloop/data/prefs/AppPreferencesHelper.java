@@ -9,9 +9,8 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     private long mCurrentDifficultyId;
     private long mCurrentLevelId;
-    private List<String> mCurrentLevelElements;
+    private List<String> mCurrentLevelElements; // holds elements that will be used in game
     private String mCurrentLevelDimensions;
-    private int[][] mGameStateArray;
 
     @Inject
     public AppPreferencesHelper() {
@@ -35,16 +34,6 @@ public class AppPreferencesHelper implements PreferencesHelper {
     @Override
     public void setCurrentLevelId(long levelId) {
         mCurrentLevelId = levelId;
-    }
-
-    @Override
-    public int[][] getGameStateArray() {
-        return mGameStateArray;
-    }
-
-    @Override
-    public void setGameStateArray(int[][] gameStateArray) {
-        mGameStateArray = gameStateArray;
     }
 
     @Override

@@ -1,4 +1,4 @@
-INSERT OR REPLACE INTO `game_vars` VALUES (1, COALESCE((SELECT cur_difficulty_id FROM `game_vars` LIMIT 1), 1), COALESCE((SELECT next_level_id FROM `game_vars` LIMIT 1), 1), 0);
+INSERT OR REPLACE INTO `game_vars` VALUES (1, COALESCE((SELECT next_to_play_difficulty_id FROM `game_vars` LIMIT 1), 1), COALESCE((SELECT next_to_play_level_id FROM `game_vars` LIMIT 1), 1), 0);
 INSERT INTO `level` VALUES (1,1,1,'3x3','1,2,3');
 INSERT INTO `level` VALUES (2,1,2,'3x3','1,2,3,4');
 INSERT INTO `level` VALUES (3,1,3,'4x4','1,2');

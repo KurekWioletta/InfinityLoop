@@ -12,10 +12,6 @@ public interface PreferencesHelper {
 
     void setCurrentLevelId(long levelId);
 
-    int[][] getGameStateArray();
-
-    void setGameStateArray(int[][] gameStateArray);
-
     List<String> getCurrentLevelElements();
 
     String getCurrentLevelDimensions();

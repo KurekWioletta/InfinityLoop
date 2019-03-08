@@ -62,9 +62,9 @@ public class AppDbHelper implements DbHelper{
     }
 
     @Override
-    public Difficulty getDifficulty() {
+    public Difficulty getNextToPlayDifficulty() {
         return  mDaoSession.getDifficultyDao().load(
-                mDaoSession.getGameVarsDao().loadByRowId(1).getCurrentDifficultyId());
+                mDaoSession.getGameVarsDao().loadByRowId(1).getNextToPlayDifficultyId());
     }
 
     @Override
@@ -82,12 +82,6 @@ public class AppDbHelper implements DbHelper{
 
         return mDaoSession.getDifficultyDao().load(
                 mDaoSession.getDifficultyDao().count());
-    }
-
-    @Override
-    public Level getNextLevel() {
-        return  mDaoSession.getLevelDao().load(
-                mDaoSession.getGameVarsDao().loadByRowId(1).getNextLevelId());
     }
 
 }

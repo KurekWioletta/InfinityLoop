@@ -18,15 +18,20 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
 
     @Override
     public void onViewInitialized() {
+        // initializing game
         int dimX = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[0]);
         int dimY = Integer.parseInt(getDataManager().getCurrentLevelDimensions().split("x", -1)[1]);
 
         generateGameMap(dimX, dimY);
-        generateElementsArray(); //setElementsArray
+        int[] elementsArray = generateElementsArray(dimX, dimY);
 
-        int[] gameboardElementsArray = createGameboardElementsArray(); //getElementsArray
+        getMvpView().setUpGameboard(dimX, dimY, elementsArray);
+    }
 
-        getMvpView().setUpGameboard(dimX, dimY, gameboardElementsArray);
+    @Override
+    public void onElementClick(int position) {
+        getDataManager().getRotationAnglesArray()[position] += 90;
+        getMvpView().rotateElement(position, getDataManager().getRotationAnglesArray()[position]);
     }
 
     private void generateGameMap(int dimX, int dimY){
@@ -36,20 +41,21 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
                 //todo
             }
         }
-        getDataManager().setGameStateArray(gameStateArray);
+        //getDataManager().setGameStateArray(gameStateArray);
     }
 
-    private void generateElementsArray(){
-        //
-    }
-
-    private int[] createGameboardElementsArray(){
+    private int[] generateElementsArray(int dimX, int dimY){
+        // creating array of elements on gameboard
         int[] gameElementsArray = new int[dimX * dimY];
+        for (int i = 0; i < dimX * dimY; i++) {
+            gameElementsArray[i] = R.drawable.ic_element_1;
+        }
 
-        for (int i = 0; i < dimX; i++)
-            gameElements[i] = R.drawable.ic_element_1;
+        // creating array of the angles that each element is rotated
+        int[] rotationAnglesArray = new int[dimX * dimY];
+        getDataManager().setRotationAnglesArray(rotationAnglesArray);
 
-        return gameElements;
+        return gameElementsArray;
     }
 }
 

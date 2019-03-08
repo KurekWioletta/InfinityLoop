@@ -19,7 +19,9 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
 
     @Override
     public void onViewInitialized() {
-        Difficulty difficulty = getDataManager().getDifficulty();
+        Difficulty difficulty = getDataManager().getNextToPlayDifficulty();
+
+        getDataManager().setCurrentDifficultyId(difficulty.getId());
         getDifficultyData(difficulty);
     }
 

@@ -11,7 +11,7 @@
         android:id="@+id/grid_game_gameboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnWidth="@dimen/game_element_size"
+        android:columnWidth="@dimen/game_image_element_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"

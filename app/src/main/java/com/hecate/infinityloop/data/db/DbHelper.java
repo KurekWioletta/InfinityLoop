@@ -18,12 +18,10 @@ public interface DbHelper {
 
     List<FinishedLevel> getFinishedLevelList(Long difficultyId);
 
-    Difficulty getDifficulty();
+    Difficulty getNextToPlayDifficulty();
 
     Difficulty getNextDifficulty(Long difficultyId);
 
     Difficulty getPreviousDifficulty(Long difficultyId);
-
-    Level getNextLevel();
 
 }
