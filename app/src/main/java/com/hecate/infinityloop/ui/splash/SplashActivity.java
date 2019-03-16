@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SplashActivity extends BaseActivity implements SplashContract.View{
+public class SplashActivity extends BaseActivity implements SplashContract.View {
 
     @Inject
     SplashPresenter<SplashContract.View> mPresenter;
