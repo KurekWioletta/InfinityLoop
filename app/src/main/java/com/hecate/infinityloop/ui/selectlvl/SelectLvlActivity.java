@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
-import com.hecate.infinityloop.data.db.model.Level;
+import com.hecate.infinityloop.data.db.model.Level; // needed refactor - should not be here
 import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.GameActivity;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
