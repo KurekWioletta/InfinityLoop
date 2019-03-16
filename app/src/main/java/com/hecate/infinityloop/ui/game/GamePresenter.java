@@ -34,17 +34,17 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
         getMvpView().rotateElement(position, getDataManager().getRotationAnglesArray()[position]);
     }
 
-    private void generateGameMap(int dimX, int dimY){
+    private void generateGameMap(int dimX, int dimY) {
         int[][] gameStateArray = new int[dimX][dimY];
-        for (int i = 0; i < dimX; i++){
-            for (int j = 0; j < dimY; j++){
+        for (int i = 0; i < dimX; i++) {
+            for (int j = 0; j < dimY; j++) {
                 //todo
             }
         }
         //getDataManager().setGameStateArray(gameStateArray);
     }
 
-    private int[] generateElementsArray(int dimX, int dimY){
+    private int[] generateElementsArray(int dimX, int dimY) {
         // creating array of elements on gameboard
         int[] gameElementsArray = new int[dimX * dimY];
         for (int i = 0; i < dimX * dimY; i++) {
