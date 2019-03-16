@@ -76,7 +76,7 @@ public class LevelAdapter extends PagerAdapter {
     }
 
     @OnClick(R.id.card_lvl)
-    void onLevelClick(){
+    void onLevelClick() {
         ((SelectLvlActivity)mContext).onLevelClicked();
     }
 
