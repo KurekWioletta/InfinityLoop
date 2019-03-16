@@ -1,11 +1,8 @@
 package com.hecate.infinityloop.ui.splash;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
 
 import com.hecate.infinityloop.R;
-import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.main.MainActivity;
 
@@ -18,9 +15,6 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
     @Inject
     SplashPresenter<SplashContract.View> mPresenter;
-
-    @Inject
-    DataManager mDataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
