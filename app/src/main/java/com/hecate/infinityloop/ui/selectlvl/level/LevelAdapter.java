@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
-import com.hecate.infinityloop.data.db.model.Level;
+import com.hecate.infinityloop.data.db.model.Level; // needed refactor - should not be here
 import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
 
 import java.util.ArrayList;
