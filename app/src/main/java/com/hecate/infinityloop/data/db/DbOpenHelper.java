@@ -29,15 +29,13 @@ import javax.inject.Singleton;
 @Singleton
 public class DbOpenHelper extends DaoMaster.OpenHelper {
 
-    private static String DB_NAME;
-
+    private String DB_NAME;
     private Context mContext;
 
     @Inject
     public DbOpenHelper(@ApplicationContext Context context, @DatabaseInfo String dbName) {
         super(context, dbName);
-        this.mContext = context;
-
+        mContext = context;
         DB_NAME = dbName;
     }
 

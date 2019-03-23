@@ -1,8 +1,8 @@
-package com.hecate.infinityloop.data.prefs;
+package com.hecate.infinityloop.data.state;
 
 import java.util.List;
 
-public interface PreferencesHelper {
+public interface StateHelper {
 
     long getCurrentDifficultyId();
 
@@ -17,7 +17,6 @@ public interface PreferencesHelper {
     String getCurrentLevelDimensions();
 
     void setCurrentLevelData(String elements, String dimensions);
-
 
 }
 

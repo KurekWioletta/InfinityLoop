@@ -6,8 +6,8 @@ import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
-import com.hecate.infinityloop.data.game.GameStateHelper;
-import com.hecate.infinityloop.data.prefs.PreferencesHelper;
+import com.hecate.infinityloop.data.gameplay.GameplayHelper;
+import com.hecate.infinityloop.data.state.StateHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
 
@@ -23,15 +23,15 @@ public class AppDataManager implements DataManager {
 
     private final Context mContext;
     private final DbHelper mDbHelper;
-    private final PreferencesHelper mPreferencesHelper;
-    private final GameStateHelper mGameStateHelper;
+    private final StateHelper mStateHelper;
+    private final GameplayHelper mGameplayHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, PreferencesHelper preferencesHelper, GameStateHelper gameStateHelper, @DatabaseInfo String dbName) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StateHelper stateHelper, GameplayHelper gameplayHelper, @DatabaseInfo String dbName) {
         mContext = context;
         mDbHelper = dbHelper;
-        mPreferencesHelper = preferencesHelper;
-        mGameStateHelper = gameStateHelper;
+        mStateHelper = stateHelper;
+        mGameplayHelper = gameplayHelper;
 
         DB_NAME = dbName;
     }
@@ -72,50 +72,50 @@ public class AppDataManager implements DataManager {
         return mDbHelper.getPreviousDifficulty(difficultyId);
     }
 
-    //PreferencesHelper
+    //StateHelper
     @Override
     public long getCurrentDifficultyId() {
-        return mPreferencesHelper.getCurrentDifficultyId();
+        return mStateHelper.getCurrentDifficultyId();
     }
 
     @Override
     public void setCurrentDifficultyId(long difficultyId) {
-        mPreferencesHelper.setCurrentDifficultyId(difficultyId);
+        mStateHelper.setCurrentDifficultyId(difficultyId);
     }
 
     @Override
     public long getCurrentLevelId() {
-        return mPreferencesHelper.getCurrentLevelId();
+        return mStateHelper.getCurrentLevelId();
     }
 
     @Override
     public void setCurrentLevelId(long levelId) {
-        mPreferencesHelper.setCurrentLevelId(levelId);
+        mStateHelper.setCurrentLevelId(levelId);
     }
 
     @Override
     public List<String> getCurrentLevelElements() {
-        return mPreferencesHelper.getCurrentLevelElements();
+        return mStateHelper.getCurrentLevelElements();
     }
 
     @Override
     public String getCurrentLevelDimensions() {
-        return mPreferencesHelper.getCurrentLevelDimensions();
+        return mStateHelper.getCurrentLevelDimensions();
     }
 
     @Override
     public void setCurrentLevelData(String elements, String dimensions) {
-        mPreferencesHelper.setCurrentLevelData(elements, dimensions);
+        mStateHelper.setCurrentLevelData(elements, dimensions);
     }
 
-    //GameStateHelper
+    //GameplayHelper
     @Override
     public int[] getRotationAnglesArray() {
-        return mGameStateHelper.getRotationAnglesArray();
+        return mGameplayHelper.getRotationAnglesArray();
     }
 
     @Override
     public void setRotationAnglesArray(int[] mRotationDegreesArray) {
-        mGameStateHelper.setRotationAnglesArray(mRotationDegreesArray);
+        mGameplayHelper.setRotationAnglesArray(mRotationDegreesArray);
     }
 }

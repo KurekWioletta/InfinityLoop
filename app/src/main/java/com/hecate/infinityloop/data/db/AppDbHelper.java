@@ -30,7 +30,7 @@ public class AppDbHelper implements DbHelper{
         this.mDbOpenHelper = dbOpenHelper;
     }
 
-    //db create and import
+    //create db and import data
     @Override
     public Observable<Boolean> createDatabase() {
         return Observable.fromCallable(new Callable<Boolean>() {
@@ -42,7 +42,7 @@ public class AppDbHelper implements DbHelper{
         });
     }
 
-    //database queries
+    //database queries ----> todo: make methods asynchronous like createDatabase()
     @Override
     public List<Difficulty> getDifficultyList() {
         return mDaoSession.getDifficultyDao().loadAll();

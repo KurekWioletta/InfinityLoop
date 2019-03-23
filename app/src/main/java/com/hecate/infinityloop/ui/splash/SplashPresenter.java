@@ -7,10 +7,8 @@ import com.hecate.infinityloop.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
-import io.reactivex.ObservableSource;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
+import io.reactivex.observers.DisposableObserver;
 
 public class SplashPresenter<V extends SplashContract.View> extends BasePresenter<V> implements SplashContract.Presenter<V> {
 
@@ -38,24 +36,24 @@ public class SplashPresenter<V extends SplashContract.View> extends BasePresente
                 .createDatabase()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .concatMap(new Function<Boolean, ObservableSource<Boolean>>() {
+                .subscribeWith(new DisposableObserver<Boolean>() {
                     @Override
-                    public ObservableSource<Boolean> apply(Boolean aBoolean) throws Exception {
-                        return getDataManager().createDatabase();
+                    public void onNext(Boolean aBoolean) {
+                        //todo - generic abstract class that will work as a Response wrapper
                     }
-                })
-                .subscribe(new Consumer<Boolean>() {
+
                     @Override
-                    public void accept(Boolean aBoolean){
-                        getMvpView().openMainActivity();
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) {
+                    public void onError(Throwable e) {
                         getMvpView().hideAppLoading();
                         getMvpView().onError(R.string.err_database_create);
                     }
-                }));
+
+                    @Override
+                    public void onComplete() {
+                        getMvpView().openMainActivity();
+                    }
+                })
+        );
     }
 
 }

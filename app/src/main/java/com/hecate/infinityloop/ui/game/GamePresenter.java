@@ -41,7 +41,6 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
                 //todo
             }
         }
-        //getDataManager().setGameStateArray(gameStateArray);
     }
 
     private int[] generateElementsArray(int dimX, int dimY) {

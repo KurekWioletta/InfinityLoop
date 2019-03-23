@@ -1,11 +1,11 @@
-package com.hecate.infinityloop.data.prefs;
+package com.hecate.infinityloop.data.state;
 
 import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class AppPreferencesHelper implements PreferencesHelper {
+public class AppStateHelper implements StateHelper {
 
     private long mCurrentDifficultyId;
     private long mCurrentLevelId;
@@ -13,7 +13,7 @@ public class AppPreferencesHelper implements PreferencesHelper {
     private String mCurrentLevelDimensions;
 
     @Inject
-    public AppPreferencesHelper() {
+    public AppStateHelper() {
     }
 
     @Override
