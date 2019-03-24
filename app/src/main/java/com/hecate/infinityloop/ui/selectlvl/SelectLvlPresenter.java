@@ -22,7 +22,7 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
         Difficulty difficulty = getDataManager().getNextToPlayDifficulty();
 
         getDataManager().setCurrentDifficultyId(difficulty.getId());
-        getDifficultyData(difficulty);
+        refreshMvpView(difficulty);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
                 getDataManager().getCurrentDifficultyId());
 
         getDataManager().setCurrentDifficultyId(difficulty.getId());
-        getDifficultyData(difficulty);
+        refreshMvpView(difficulty);
     }
 
     @Override
@@ -40,18 +40,18 @@ public class SelectLvlPresenter<V extends SelectLvlContract.View> extends BasePr
                 getDataManager().getCurrentDifficultyId());
 
         getDataManager().setCurrentDifficultyId(difficulty.getId());
-        getDifficultyData(difficulty);
+        refreshMvpView(difficulty);
     }
 
     @Override
     public void onLevelClick(Level level) {
         getDataManager().setCurrentLevelId(level.getId());
-        getDataManager().setCurrentLevelData(level.getElements(), level.getDimensions());
+        getDataManager().setCurrentLevelData(level.getElements(),level.getDimensions());
 
         getMvpView().openGameActivity();
     }
 
-    private void getDifficultyData(Difficulty difficulty){
+    private void refreshMvpView(Difficulty difficulty){
         getMvpView().refreshTextViewDifficulty(
                 difficulty.getName());
 

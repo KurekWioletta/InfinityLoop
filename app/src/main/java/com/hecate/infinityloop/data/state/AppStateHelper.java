@@ -9,6 +9,8 @@ public class AppStateHelper implements StateHelper {
 
     private long mCurrentDifficultyId;
     private long mCurrentLevelId;
+
+    // todo: move to GameplayHelper
     private List<String> mCurrentLevelElements; // holds elements that will be used in game
     private String mCurrentLevelDimensions;
 

@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hecate.infinityloop.R;
-import com.hecate.infinityloop.data.db.model.Level; // needed refactor - should not be here
+import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
+import com.hecate.infinityloop.ui.selectlvl.SelectLvlContract;
+import com.hecate.infinityloop.ui.selectlvl.SelectLvlPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +79,7 @@ public class LevelAdapter extends PagerAdapter {
 
     @OnClick(R.id.card_lvl)
     void onLevelClick() {
-        ((SelectLvlActivity)mContext).onLevelClicked();
+        ((SelectLvlActivity)mContext).onLevelClick();
     }
 
     public void clear(ViewPager pager) {
@@ -87,13 +89,14 @@ public class LevelAdapter extends PagerAdapter {
         pager.setAdapter (this);
     }
 
-    public void addItem(Level level) {
-        mViewList.add(null);
-        mLevelList.add(level);
+    public void addItems(List<Level> levelList) {
+        mLevelList.addAll(levelList);
+        for (Level level : mLevelList)
+            mViewList.add(null);
     }
 
-    public Level getLevel(int position) {
-        return mLevelList.get(position);
+    public void onNotifyLevelClicked(SelectLvlPresenter<SelectLvlContract.View> mPresenter, int position){
+        mPresenter.onLevelClick(mLevelList.get(position));
     }
 
     private void setUp(int position) {

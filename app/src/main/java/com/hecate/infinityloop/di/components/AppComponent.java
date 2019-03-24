@@ -1,6 +1,5 @@
 package com.hecate.infinityloop.di.components;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.hecate.infinityloop.App;
