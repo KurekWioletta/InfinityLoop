@@ -92,7 +92,7 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     public void onLevelClick() {
-        mLevelAdapter.onNotifyLevelClicked(mPresenter, viewPager.getCurrentItem());
+        mPresenter.onLevelClick(mLevelAdapter.getItem(viewPager.getCurrentItem()));
     }
 
     public static Intent getStartIntent(Context context) {

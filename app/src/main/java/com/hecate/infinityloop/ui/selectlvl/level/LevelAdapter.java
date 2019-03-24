@@ -95,8 +95,8 @@ public class LevelAdapter extends PagerAdapter {
             mViewList.add(null);
     }
 
-    public void onNotifyLevelClicked(SelectLvlPresenter<SelectLvlContract.View> mPresenter, int position){
-        mPresenter.onLevelClick(mLevelList.get(position));
+    public Level getItem(int position) {
+        return mLevelList.get(position);
     }
 
     private void setUp(int position) {
