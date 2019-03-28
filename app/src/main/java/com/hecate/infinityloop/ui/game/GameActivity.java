@@ -12,7 +12,9 @@ import android.widget.GridView;
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.element.ElementAdapter;
-import com.hecate.infinityloop.utils.DimensionsUtils;
+import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
+import com.hecate.infinityloop.utils.ScreenUtils;
+import com.hecate.infinityloop.utils.ViewUtils;
 
 import javax.inject.Inject;
 
@@ -21,10 +23,11 @@ import butterknife.ButterKnife;
 
 public class GameActivity extends BaseActivity implements GameContract.View {
 
-    private ElementAdapter mElementAdapter;
-
     @Inject
     GamePresenter<GameContract.View> mPresenter;
+
+    @Inject
+    ElementAdapter mElementAdapter;
 
     @BindView(R.id.grid_game_gameboard)
     GridView gameboardGridView;
@@ -43,10 +46,10 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     }
 
     @Override
-    public void setUpGameboard(int dimX, int dimY, int[] elementsArray) {
-        int elementSize = DimensionsUtils.getElementSize(this);
+    public void setUpGameboard(int dimX, int[] elements, int[] rotationAngles) {
+        int elementSize = ScreenUtils.getElementSize(this);
 
-        mElementAdapter = new ElementAdapter(this, elementsArray);
+        mElementAdapter.addItems(elements, rotationAngles);
 
         gameboardGridView.setAdapter(mElementAdapter);
         gameboardGridView.getLayoutParams().width = dimX * elementSize;
@@ -62,14 +65,8 @@ public class GameActivity extends BaseActivity implements GameContract.View {
 
     @Override
     public void rotateElement(int position, int angle) {
-        /* rotate view by 90 degrees on every click */
-        RotateAnimation animation = new RotateAnimation(angle - 90, angle, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-
-        animation.setInterpolator(new LinearInterpolator());
-        animation.setRepeatCount(0);
-        animation.setFillAfter(true);
-        animation.setDuration(200);
-
+        // rotate view by 90 degrees on every click
+        RotateAnimation animation = ViewUtils.rotateBitmap(200, angle);
         mElementAdapter.getItem(position).startAnimation(animation);
     }
 

@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import com.hecate.infinityloop.R;
 
-public class DimensionsUtils {
+public class ScreenUtils {
 
     public static float getScreenWidth(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);

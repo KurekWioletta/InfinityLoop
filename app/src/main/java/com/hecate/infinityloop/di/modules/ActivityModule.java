@@ -3,6 +3,7 @@ package com.hecate.infinityloop.di.modules;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
+import com.hecate.infinityloop.data.gameplay.Gameplay;
 import com.hecate.infinityloop.di.ActivityContext;
 import com.hecate.infinityloop.di.PerActivity;
 import com.hecate.infinityloop.ui.game.GameContract;
@@ -66,6 +67,10 @@ public class ActivityModule {
         return presenter;
     }
 
+    @Provides
+    Gameplay provideGameplay() {
+        return new Gameplay();
+    }
 
     @Provides
     AppCompatActivity provideActivity() {
@@ -87,4 +92,8 @@ public class ActivityModule {
         return new LevelAdapter();
     }
 
+    @Provides
+    ElementAdapter provideElementAdapter() {
+        return new ElementAdapter(mActivity);
+    }
 }

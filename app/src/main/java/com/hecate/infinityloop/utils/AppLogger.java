@@ -4,7 +4,7 @@ import com.hecate.infinityloop.BuildConfig;
 
 import timber.log.Timber;
 
-public class AppLog {
+public class AppLogger {
 
     public static void init() {
         if (BuildConfig.DEBUG) {

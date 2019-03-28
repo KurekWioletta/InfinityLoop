@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.hecate.infinityloop.R;
 import com.hecate.infinityloop.data.db.model.Level;
 import com.hecate.infinityloop.ui.selectlvl.SelectLvlActivity;
-import com.hecate.infinityloop.ui.selectlvl.SelectLvlContract;
-import com.hecate.infinityloop.ui.selectlvl.SelectLvlPresenter;
 
 import java.util.ArrayList;
 import java.util.List;

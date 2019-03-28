@@ -17,14 +17,14 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
     @Inject
     public BasePresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
-        this.mDataManager = dataManager;
-        this.mSchedulerProvider = schedulerProvider;
-        this.mCompositeDisposable = compositeDisposable;
+        mDataManager = dataManager;
+        mSchedulerProvider = schedulerProvider;
+        mCompositeDisposable = compositeDisposable;
     }
 
     @Override
-    public void onAttach(V mMvpView) {
-        this.mMvpView = mMvpView;
+    public void onAttach(V mvpView) {
+        mMvpView = mvpView;
     }
 
     @Override

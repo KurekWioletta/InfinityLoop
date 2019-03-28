@@ -12,7 +12,7 @@ public interface StateHelper {
 
     void setCurrentLevelId(long levelId);
 
-    List<String> getCurrentLevelElements();
+    List<String> getCurrentLevelElementList();
 
     String getCurrentLevelDimensions();
 

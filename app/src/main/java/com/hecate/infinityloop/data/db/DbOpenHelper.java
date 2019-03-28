@@ -1,27 +1,18 @@
 package com.hecate.infinityloop.data.db;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import com.hecate.infinityloop.data.db.model.DaoMaster;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
-import com.hecate.infinityloop.utils.AppLog;
+import com.hecate.infinityloop.utils.AppLogger;
 
 import org.greenrobot.greendao.database.Database;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -53,7 +44,7 @@ public class DbOpenHelper extends DaoMaster.OpenHelper {
     public void onUpgrade(Database db, int oldVersion, int newVersion) {
         super.onUpgrade(db, oldVersion, newVersion);
 
-        AppLog.d("DEBUG", "DB_OLD_VERSION : " + oldVersion + ", DB_NEW_VERSION : " + newVersion);
+        AppLogger.d("DEBUG", "DB_OLD_VERSION : " + oldVersion + ", DB_NEW_VERSION : " + newVersion);
 
         switch (oldVersion) {
             case 1:

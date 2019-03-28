@@ -12,8 +12,9 @@ import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.GameActivity;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapterTransformer;
-import com.hecate.infinityloop.utils.ViewConst;
-import com.hecate.infinityloop.utils.DimensionsUtils;
+import com.hecate.infinityloop.utils.AppConst;
+import com.hecate.infinityloop.utils.ViewUtils;
+import com.hecate.infinityloop.utils.ScreenUtils;
 
 import java.util.List;
 
@@ -105,8 +106,8 @@ public class SelectLvlActivity extends BaseActivity implements SelectLvlContract
     }
 
     private void setUpViewPager(){
-        float screenWidth = DimensionsUtils.getScreenWidth(this);
-        float scale = ViewConst.VIEW_PAGER_SMALLER_SCALE;
+        float screenWidth = ScreenUtils.getScreenWidth(this);
+        float scale = AppConst.VIEW_PAGER_SMALLER_SCALE;
 
         int partialWidth = (int) getResources().getDimension(R.dimen.select_level_view_pager_padding);
         int pageMargin = (int) getResources().getDimension(R.dimen.select_level_view_pager_page_margin);

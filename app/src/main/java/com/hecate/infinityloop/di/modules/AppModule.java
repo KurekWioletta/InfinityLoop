@@ -8,8 +8,6 @@ import com.hecate.infinityloop.data.AppDataManager;
 import com.hecate.infinityloop.data.DataManager;
 import com.hecate.infinityloop.data.db.AppDbHelper;
 import com.hecate.infinityloop.data.db.DbHelper;
-import com.hecate.infinityloop.data.gameplay.AppGameplayHelper;
-import com.hecate.infinityloop.data.gameplay.GameplayHelper;
 import com.hecate.infinityloop.data.state.AppStateHelper;
 import com.hecate.infinityloop.data.state.StateHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
@@ -64,12 +62,6 @@ public class AppModule {
     @Singleton
     StateHelper provideStateHelper(AppStateHelper appStateHelper) {
         return appStateHelper;
-    }
-
-    @Provides
-    @Singleton
-    GameplayHelper provideGameplayHelper(AppGameplayHelper appGameplayHelper) {
-        return appGameplayHelper;
     }
 
     @Provides

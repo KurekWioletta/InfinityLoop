@@ -7,7 +7,7 @@ import com.hecate.infinityloop.ui.base.MvpView;
 public interface GameContract{
 
     interface View extends MvpView {
-        void setUpGameboard(int dimX, int dimY, int[] elements);
+        void setUpGameboard(int dimX, int[] elements, int[] elementRotationAngles);
 
         void rotateElement(int position, int angle);
     }

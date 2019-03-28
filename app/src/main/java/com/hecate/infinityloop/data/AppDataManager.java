@@ -6,7 +6,6 @@ import com.hecate.infinityloop.data.db.DbHelper;
 import com.hecate.infinityloop.data.db.model.Difficulty;
 import com.hecate.infinityloop.data.db.model.FinishedLevel;
 import com.hecate.infinityloop.data.db.model.Level;
-import com.hecate.infinityloop.data.gameplay.GameplayHelper;
 import com.hecate.infinityloop.data.state.StateHelper;
 import com.hecate.infinityloop.di.ApplicationContext;
 import com.hecate.infinityloop.di.DatabaseInfo;
@@ -24,14 +23,12 @@ public class AppDataManager implements DataManager {
     private final Context mContext;
     private final DbHelper mDbHelper;
     private final StateHelper mStateHelper;
-    private final GameplayHelper mGameplayHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StateHelper stateHelper, GameplayHelper gameplayHelper, @DatabaseInfo String dbName) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, StateHelper stateHelper, @DatabaseInfo String dbName) {
         mContext = context;
         mDbHelper = dbHelper;
         mStateHelper = stateHelper;
-        mGameplayHelper = gameplayHelper;
 
         DB_NAME = dbName;
     }
@@ -94,8 +91,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public List<String> getCurrentLevelElements() {
-        return mStateHelper.getCurrentLevelElements();
+    public List<String> getCurrentLevelElementList() {
+        return mStateHelper.getCurrentLevelElementList();
     }
 
     @Override
@@ -106,16 +103,5 @@ public class AppDataManager implements DataManager {
     @Override
     public void setCurrentLevelData(String elements, String dimensions) {
         mStateHelper.setCurrentLevelData(elements, dimensions);
-    }
-
-    //GameplayHelper
-    @Override
-    public int[] getRotationAnglesArray() {
-        return mGameplayHelper.getRotationAnglesArray();
-    }
-
-    @Override
-    public void setRotationAnglesArray(int[] mRotationDegreesArray) {
-        mGameplayHelper.setRotationAnglesArray(mRotationDegreesArray);
     }
 }

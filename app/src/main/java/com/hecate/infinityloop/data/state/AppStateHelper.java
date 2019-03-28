@@ -9,10 +9,10 @@ public class AppStateHelper implements StateHelper {
 
     private long mCurrentDifficultyId;
     private long mCurrentLevelId;
-
-    // todo: move to GameplayHelper
-    private List<String> mCurrentLevelElements; // holds elements that will be used in game
     private String mCurrentLevelDimensions;
+
+    // holds ids of elements in chosen level
+    private List<String> mCurrentLevelElementList;
 
     @Inject
     public AppStateHelper() {
@@ -39,8 +39,8 @@ public class AppStateHelper implements StateHelper {
     }
 
     @Override
-    public List<String> getCurrentLevelElements() {
-        return mCurrentLevelElements;
+    public List<String> getCurrentLevelElementList() {
+        return mCurrentLevelElementList;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AppStateHelper implements StateHelper {
 
     @Override
     public void setCurrentLevelData(String elements, String dimensions) {
-        mCurrentLevelElements = Arrays.asList(elements.split("\\s*,\\s*"));;
+        mCurrentLevelElementList = Arrays.asList(elements.split("\\s*,\\s*"));;
         mCurrentLevelDimensions = dimensions;
     }
 }
