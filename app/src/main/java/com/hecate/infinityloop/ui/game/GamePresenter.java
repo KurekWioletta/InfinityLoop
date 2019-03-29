@@ -30,7 +30,7 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
         mGameplay.generateGameMap(dimX, dimY);
         mGameplay.adjustElements(dimX, dimY);
 
-        getMvpView().setUpGameboard(dimX, mGameplay.getElementTypes(), mGameplay.getRotationAngles());
+        getMvpView().setUpGameboard(dimX, mGameplay.getElements());
     }
 
     @Override

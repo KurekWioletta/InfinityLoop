@@ -3,16 +3,20 @@ package com.hecate.infinityloop.data.gameplay;
 import com.hecate.infinityloop.data.gameplay.model.Element;
 import com.hecate.infinityloop.utils.MathUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static java.lang.Math.abs;
 
 public class Gameplay{
 
     private int mDimY;
+    private List<Element> mElementList;
     private Element[][] mElements;
-    private int[] mElementTypes;
-    private int[] mRotationAngles;
 
     public Gameplay() {
+        mElementList = new ArrayList<>();
     }
 
     public void initializeElements(int x, int y) {
@@ -21,6 +25,7 @@ public class Gameplay{
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 mElements[i][j] = new Element();
+                mElementList.add(mElements[i][j]);
             }
         }
     }
@@ -31,12 +36,8 @@ public class Gameplay{
         return mElements[x][y];
     }
 
-    public int[] getElementTypes() {
-        return mElementTypes;
-    }
-
-    public int[] getRotationAngles() {
-        return mRotationAngles;
+    public List<Element> getElements() {
+        return mElementList;
     }
 
     /**
@@ -68,30 +69,24 @@ public class Gameplay{
      * Matches line types and rotation angles to elements based on number and type of connections.
      */
     public void adjustElements(int dimX, int dimY) {
-        mElementTypes = new int[dimX * dimY];
-        mRotationAngles = new int[dimX * dimY];
-
-        int position = 0;
-
         for (int i = 0; i < dimX; i++) {
             for (int j = 0; j < dimY; j++) {
                 int connectionCounter = mElements[i][j].getConnectionCounter();
-                mElementTypes[position] = connectionCounter;
+                mElements[i][j].setLineType(connectionCounter);
 
                 switch (connectionCounter) {
                     case 1:
                         adjustUnevenElementRotation(mElements[i][j], 1);
                         break;
                     case 2:
-                        int elementType = abs(mElements[i][j].getTop() - mElements[i][j].getBottom());
-                        adjustEvenElementRotation(mElements[i][j], elementType);
-                        mElementTypes[position] = 20 + elementType;
+                        int lineType = abs(mElements[i][j].getTop() - mElements[i][j].getBottom());
+                        mElements[i][j].setLineType(20 + lineType);
+                        adjustEvenElementRotation(mElements[i][j], lineType);
                         break;
                     case 3:
                         adjustUnevenElementRotation(mElements[i][j], 0);
                         break;
                 }
-                mRotationAngles[position++] = mElements[i][j].getRotationAngle();
             }
         }
     }

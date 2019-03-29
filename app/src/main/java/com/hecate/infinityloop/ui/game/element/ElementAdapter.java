@@ -8,6 +8,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.data.gameplay.model.Element;
 import com.hecate.infinityloop.utils.AppConst;
 import com.hecate.infinityloop.utils.ViewUtils;
 
@@ -20,8 +21,7 @@ import butterknife.ButterKnife;
 public class ElementAdapter extends BaseAdapter {
 
     private List<View> mViewList;
-    private int[] mElements;
-    private int[] mRotationAngles;
+    private List<Element> mElementList;
     private Context mContext;
     private StringBuffer mResourceName;
 
@@ -29,14 +29,15 @@ public class ElementAdapter extends BaseAdapter {
     ImageView elementImageView;
 
     public ElementAdapter(Context context) {
-        mContext = context;
         mViewList = new ArrayList<>();
+        mElementList = new ArrayList<>();
+        mContext = context;
         mResourceName = new StringBuffer(AppConst.ELEMENT_RESOURCE_NAME);
     }
 
     @Override
     public int getCount() {
-        return mElements.length;
+        return mElementList.size();
     }
 
     @Override
@@ -61,26 +62,27 @@ public class ElementAdapter extends BaseAdapter {
 
             mViewList.add(elementImageView);
         }
-
         return  view;
     }
 
-    public void addItems(int[] elements, int[] elementRotationAngles) {
-        mElements = elements;
-        mRotationAngles = elementRotationAngles;
+    public void addItems(List<Element> elementList) {
+        mElementList.addAll(elementList);
     }
 
     /**
-     * Sets up elementImageView. To avoid a dropin performance,
+     * Sets up elementImageView. To avoid a drop in performance,
      * controls resource name using a StringBuffer.
      */
     private void setUp(int position) {
-        if (mElements[position] != 0) {
-            mResourceName.append(mElements[position]);
+        int lineType = mElementList.get(position).getLineType();
+        int rotationAngle = mElementList.get(position).getRotationAngle();
+
+    if (lineType != 0) {
+            mResourceName.append(lineType);
             elementImageView.setImageResource(ViewUtils.getDrawableResourseId(mContext, mResourceName.toString()));
             mResourceName.delete(AppConst.ELEMENT_RESOURCE_NAME.length(), mResourceName.length());
 
-            RotateAnimation animation = ViewUtils.rotateBitmap(0, mRotationAngles[position]);
+            RotateAnimation animation = ViewUtils.rotateBitmap(rotationAngle, 0);
             elementImageView.startAnimation(animation);
         }
     }

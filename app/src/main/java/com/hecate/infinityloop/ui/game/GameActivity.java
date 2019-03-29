@@ -10,11 +10,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.hecate.infinityloop.R;
+import com.hecate.infinityloop.data.gameplay.model.Element;
 import com.hecate.infinityloop.ui.base.BaseActivity;
 import com.hecate.infinityloop.ui.game.element.ElementAdapter;
 import com.hecate.infinityloop.ui.selectlvl.level.LevelAdapter;
 import com.hecate.infinityloop.utils.ScreenUtils;
 import com.hecate.infinityloop.utils.ViewUtils;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -46,10 +49,10 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     }
 
     @Override
-    public void setUpGameboard(int dimX, int[] elements, int[] rotationAngles) {
+    public void setUpGameboard(int dimX, List<Element> elementList) {
         int elementSize = ScreenUtils.getElementSize(this);
 
-        mElementAdapter.addItems(elements, rotationAngles);
+        mElementAdapter.addItems(elementList);
 
         gameboardGridView.setAdapter(mElementAdapter);
         gameboardGridView.getLayoutParams().width = dimX * elementSize;
@@ -66,7 +69,7 @@ public class GameActivity extends BaseActivity implements GameContract.View {
     @Override
     public void rotateElement(int position, int angle) {
         // rotate view by 90 degrees on every click
-        RotateAnimation animation = ViewUtils.rotateBitmap(200, angle);
+        RotateAnimation animation = ViewUtils.rotateBitmap(angle, 200);
         mElementAdapter.getItem(position).startAnimation(animation);
     }
 

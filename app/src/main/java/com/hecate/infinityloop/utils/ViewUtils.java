@@ -17,7 +17,7 @@ public class ViewUtils {
         }
     }
 
-    public static RotateAnimation rotateBitmap(int duration, int angle) {
+    public static RotateAnimation rotateBitmap(int angle, int duration) {
         RotateAnimation animation = new RotateAnimation(angle - 90,
                 angle,
                 RotateAnimation.RELATIVE_TO_SELF,

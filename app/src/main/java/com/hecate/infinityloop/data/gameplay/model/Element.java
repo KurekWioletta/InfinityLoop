@@ -2,8 +2,8 @@ package com.hecate.infinityloop.data.gameplay.model;
 
 public class Element {
 
-    // holds angle of rotated element
     private int mRotationAngle = 0;
+    private int mLineType = 0;
 
     // hold side from which an element is connected to another
     private int mRight;
@@ -12,6 +12,14 @@ public class Element {
     private int mBottom;
 
     public Element() {
+    }
+
+    public int getLineType() {
+        return mLineType;
+    }
+
+    public void setLineType(int lineType) {
+        mLineType = lineType;
     }
 
     public int getRotationAngle() {
@@ -59,4 +67,5 @@ public class Element {
     public void setRight(int right) {
         mRight = right;
     }
+
 }
