@@ -4,14 +4,13 @@ import com.hecate.infinityloop.data.gameplay.model.Element;
 import com.hecate.infinityloop.utils.MathUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Math.abs;
 
 public class Gameplay{
 
-    private int mDimY;
+    // used to keep consistency with element adapter
     private List<Element> mElementList;
     private Element[][] mElements;
 
@@ -19,11 +18,10 @@ public class Gameplay{
         mElementList = new ArrayList<>();
     }
 
-    public void initializeElements(int x, int y) {
-        mDimY = y;
-        mElements = new Element[x][y];
-        for (int i = 0; i < x; i++) {
-            for (int j = 0; j < y; j++) {
+    public void initializeElements(int dimX, int dimY) {
+        mElements = new Element[dimY][dimX];
+        for (int i = 0; i < dimY; i++) {
+            for (int j = 0; j < dimX; j++) {
                 mElements[i][j] = new Element();
                 mElementList.add(mElements[i][j]);
             }
@@ -31,9 +29,7 @@ public class Gameplay{
     }
 
     public Element getElement(int position) {
-        int x = position/mDimY;
-        int y = position%mDimY;
-        return mElements[x][y];
+        return mElementList.get(position);
     }
 
     public List<Element> getElements() {
@@ -48,9 +44,9 @@ public class Gameplay{
      * todo: optionally generate connections of available types.
      */
     public void generateGameMap(int dimX, int dimY) {
-        for (int i = 0; i < dimX; i++) {
-            for (int j = 0; j < dimY; j++) {
-                if (i == dimX - 1) mElements[i][j].setBottom(0);
+        for (int i = 0; i < dimY; i++) {
+            for (int j = 0; j < dimX; j++) {
+                if (i == dimY - 1) mElements[i][j].setBottom(0);
                 else mElements[i][j].setBottom(MathUtils.getRandomNumberInRange(0, 1));
 
                 if (j == dimX - 1) mElements[i][j].setRight(0);
@@ -69,8 +65,8 @@ public class Gameplay{
      * Matches line types and rotation angles to elements based on number and type of connections.
      */
     public void adjustElements(int dimX, int dimY) {
-        for (int i = 0; i < dimX; i++) {
-            for (int j = 0; j < dimY; j++) {
+        for (int i = 0; i < dimY; i++) {
+            for (int j = 0; j < dimX; j++) {
                 int connectionCounter = mElements[i][j].getConnectionCounter();
                 mElements[i][j].setLineType(connectionCounter);
 

@@ -77,7 +77,7 @@ public class ElementAdapter extends BaseAdapter {
         int lineType = mElementList.get(position).getLineType();
         int rotationAngle = mElementList.get(position).getRotationAngle();
 
-    if (lineType != 0) {
+        if (lineType != 0) {
             mResourceName.append(lineType);
             elementImageView.setImageResource(ViewUtils.getDrawableResourseId(mContext, mResourceName.toString()));
             mResourceName.delete(AppConst.ELEMENT_RESOURCE_NAME.length(), mResourceName.length());
