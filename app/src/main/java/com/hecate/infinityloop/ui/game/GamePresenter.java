@@ -29,13 +29,14 @@ public class GamePresenter<V extends GameContract.View> extends BasePresenter<V>
         mGameplay.initializeElements(dimX, dimY);
         mGameplay.generateGameMap(dimX, dimY);
         mGameplay.adjustElements(dimX, dimY);
+        mGameplay.rotateElements(dimX, dimY);
 
         getMvpView().setUpGameboard(dimX, mGameplay.getElements());
     }
 
     @Override
     public void onElementClick(int position) {
-        mGameplay.getElement(position).setRotationAngle(90);
+        mGameplay.getElement(position).rotate();
         getMvpView().rotateElement(position, mGameplay.getElement(position).getRotationAngle());
     }
 }

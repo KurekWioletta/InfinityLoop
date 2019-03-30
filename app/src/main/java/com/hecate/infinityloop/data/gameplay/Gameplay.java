@@ -87,6 +87,16 @@ public class Gameplay{
         }
     }
 
+    public void rotateElements(int dimX, int dimY) {
+        for (int i = 0; i < dimY; i++) {
+            for (int j = 0; j < dimX; j++) {
+                for(int k = 0; k < MathUtils.getRandomNumberInRange(0, 3); k++){
+                    mElements[i][j].rotate();
+                }
+            }
+        }
+    }
+
     /**
      * @param determinant (1) rotation is based on the side with connection (1 connection)
      *                    (0) rotation is based on the side without connection (3 connections)

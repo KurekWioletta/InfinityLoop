@@ -27,9 +27,17 @@ public class Element {
     }
 
     public void setRotationAngle(int rotation) {
-        mRotationAngle += rotation;
-        if (mRotationAngle == 360)
-            mRotationAngle = 0;
+        mRotationAngle += rotation % 360;
+    }
+
+    public void rotate() {
+        mRotationAngle = (mRotationAngle + 90) % 360;
+
+        int tmp = mTop;
+        mTop = mLeft;
+        mLeft = mBottom;
+        mBottom = mRight;
+        mRight = tmp;
     }
 
     public int getConnectionCounter() {
